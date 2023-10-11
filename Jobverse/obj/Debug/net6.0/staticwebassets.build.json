@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aXvs8f8OSK2FwcbFvs36tfTxV4cOtnqNz7lX+pX7oD4=",
+  "Hash": "EJOTgU9+TBDfiFoDPCvzlIIqDQfZiorQqR0nl++p6x8=",
   "Source": "Jobverse",
   "BasePath": "_content/Jobverse",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Jobverse.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\Login.css",
+      "SourceId": "Jobverse",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\",
+      "BasePath": "_content/Jobverse",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
       "Identity": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\Signup.css",
