@@ -13,16 +13,140 @@
       "PackagePath": "staticwebassets\\css\\Signup.css"
     },
     {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\animate.min.css",
+      "PackagePath": "staticwebassets\\css\\animate.min.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.map"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\jquery.DonutWidget.min.css",
+      "PackagePath": "staticwebassets\\css\\jquery.DonutWidget.min.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\jquerysctipttop.css",
+      "PackagePath": "staticwebassets\\css\\jquerysctipttop.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\linearicons.css",
+      "PackagePath": "staticwebassets\\css\\linearicons.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\css\\magnific-popup.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\main.map",
+      "PackagePath": "staticwebassets\\css\\main.map"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\nice-select.css",
+      "PackagePath": "staticwebassets\\css\\nice-select.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\css\\owl.carousel.css"
+    },
+    {
       "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\css\\theme\\pages.css",
+      "PackagePath": "staticwebassets\\css\\theme\\pages.css"
     },
     {
       "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\easing.min.js",
+      "PackagePath": "staticwebassets\\js\\easing.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\hoverIntent.js",
+      "PackagePath": "staticwebassets\\js\\hoverIntent.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\jquery.ajaxchimp.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.ajaxchimp.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\jquery.nice-select.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.nice-select.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\jquery.sticky.js",
+      "PackagePath": "staticwebassets\\js\\jquery.sticky.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\mail-script.js",
+      "PackagePath": "staticwebassets\\js\\mail-script.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\js\\owl.carousel.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\parallax.min.js",
+      "PackagePath": "staticwebassets\\js\\parallax.min.js"
+    },
+    {
       "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\slick.js",
+      "PackagePath": "staticwebassets\\js\\slick.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\superfish.js",
+      "PackagePath": "staticwebassets\\js\\superfish.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\superfish.min.js",
+      "PackagePath": "staticwebassets\\js\\superfish.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\vendor\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\vendor\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\js\\vendor\\jquery-2.2.4.min.js",
+      "PackagePath": "staticwebassets\\js\\vendor\\jquery-2.2.4.min.js"
     },
     {
       "Id": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\Jobverse\\Jobverse\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -21,11 +21,11 @@ C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\scopedcss\bundle\Jobverse.styles.css
-C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\scopedcss\projectbundle\Jobverse.bundle.scp.css
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\Jobverse.dll
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\refint\Jobverse.dll
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\Jobverse.pdb
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\Jobverse.genruntimeconfig.cache
 C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\ref\Jobverse.dll
+C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\X1 Carbon\Dropbox\My PC (DESKTOP-58DM7T9)\Desktop\Jobverse\Jobverse\obj\Debug\net6.0\scopedcss\projectbundle\Jobverse.bundle.scp.css
