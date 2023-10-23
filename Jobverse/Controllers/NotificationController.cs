@@ -51,7 +51,21 @@ namespace Jobverse.Controllers
                 Status = true
             },
         };
-            return View(testNotifications);
+
+            //Notification n = new Notification();
+            //n.Status = true;
+            //n.Applier = "Abdullah Sajjad";
+            //n.UserEmail = "abdullahsajjad@gmail.com";
+            //n.Title = "ASP.NET Developer";
+            //n.Time = DateTime.Now;
+
+            var db = new MyDbContext();
+            //db.Notifications.Add(n);
+            //db.SaveChanges();
+
+            List<Notification> notifications = db.Notifications.ToList();
+
+            return View(notifications);
         }
     }
 
