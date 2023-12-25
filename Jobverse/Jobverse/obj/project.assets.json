@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\MSs\\Jobverse\\Jobverse\\Jobverse.csproj",
+      "projectUniqueName": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\Jobverse\\Jobverse\\Jobverse.csproj",
       "projectName": "Jobverse",
-      "projectPath": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\MSs\\Jobverse\\Jobverse\\Jobverse.csproj",
+      "projectPath": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\Jobverse\\Jobverse\\Jobverse.csproj",
       "packagesPath": "C:\\Users\\X1 Carbon\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\MSs\\Jobverse\\Jobverse\\obj\\",
+      "outputPath": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\Jobverse\\Jobverse\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\X1 Carbon\\AppData\\Roaming\\NuGet\\NuGet.Config",

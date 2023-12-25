@@ -6,29 +6,13 @@ namespace Jobverse.Controllers
 {
     public class NotificationController : Controller
     {
-        private readonly HttpClient _httpClient;
-        public NotificationController(IHttpClientFactory httpClientFactory)
+        public IActionResult Notification()
         {
-            _httpClient = httpClientFactory.CreateClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:44379/");
+            return View();
         }
-
-        public async Task<IActionResult> Notification()
+        public IActionResult JobApplication()
         {
-            var response = await _httpClient.GetAsync("api/notification");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                var notifications = JsonConvert.DeserializeObject<List<Notification>>(content);
-
-                return View(notifications);
-            }
-            else
-            {
-                // Handle the case where the API request was not successful
-                return View("Error");
-            }
+            return View();
         }
     }
 

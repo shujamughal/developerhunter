@@ -52,15 +52,15 @@
                 <a href="#" class="primary-btn">Mark all as read</a>
               </div>
                 <ul class="cat-list notifications">
-                    @foreach (var item in Model)
+                    @*@foreach (var item in Model)
                     {
                         <li class="d-flex my-2" style="@(item.Status ? "border-left: 3px solid pink" : "")">
                             <a href="category.html" class="m-0">
                                 <p>@item.Applier applied as @item.Title</p>
-                                @*<span class="m-0"><small>@item.Time.ToString("dd/MM/yyyy HH:mm")</small></span>*@
+                                <span class="m-0"><small>@item.time.tostring("dd/mm/yyyy hh:mm")</small></span>
                             </a>
                         </li>
-                     }
+                     }*@
                 </ul>
 
               @*<a
