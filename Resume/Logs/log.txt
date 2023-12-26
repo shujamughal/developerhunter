@@ -1,0 +1,310 @@
+2023-12-24 01:06:31.571 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:06:32.134 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:06:32.224 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:06:32.243 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:06:32.246 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:06:32.248 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:06:33.150 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger - -
+2023-12-24 01:06:33.334 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger - - - 301 0 - 206.6890ms
+2023-12-24 01:06:33.336 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:06:33.885 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 549.2643ms
+2023-12-24 01:06:33.897 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/swagger-ui-bundle.js - -
+2023-12-24 01:06:33.898 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/swagger-ui.css - -
+2023-12-24 01:06:33.898 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/swagger-ui-standalone-preset.js - -
+2023-12-24 01:06:33.898 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:06:33.908 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 10.2985ms
+2023-12-24 01:06:33.974 +05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-12-24 01:06:33.974 +05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-12-24 01:06:33.978 +05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-12-24 01:06:33.991 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:06:33.992 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 94.1916ms
+2023-12-24 01:06:34.037 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/swagger-ui.css - - - 200 143632 text/css 139.4819ms
+2023-12-24 01:06:34.039 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 142.0547ms
+2023-12-24 01:06:34.211 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 219.6498ms
+2023-12-24 01:06:34.568 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:06:34.721 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/favicon-32x32.png - -
+2023-12-24 01:06:34.821 +05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-12-24 01:06:34.824 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/favicon-32x32.png - - - 200 628 image/png 102.8124ms
+2023-12-24 01:06:35.098 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 529.2549ms
+2023-12-24 01:06:44.088 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="9a51001d-57fc-4a35-b9e5-b029e69a7529" 17243
+2023-12-24 01:06:44.099 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:06:44.187 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-24 01:06:45.838 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-24 01:06:47.739 +05:00 [INF] Executed DbCommand (85ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-24 01:06:47.860 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-24 01:06:47.909 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 3706.2126ms
+2023-12-24 01:06:47.913 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:06:47.922 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="9a51001d-57fc-4a35-b9e5-b029e69a7529" 17243 - 200 - application/json;+charset=utf-8 3834.4256ms
+2023-12-24 01:10:52.370 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:10:52.871 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:10:52.922 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:10:52.937 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:10:52.944 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:10:52.948 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:10:53.699 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:10:54.479 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 789.7796ms
+2023-12-24 01:10:54.490 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:10:54.506 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 16.1053ms
+2023-12-24 01:10:54.553 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:10:54.763 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 209.8681ms
+2023-12-24 01:10:55.247 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:10:55.746 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 498.2842ms
+2023-12-24 01:16:04.578 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:16:04.958 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:16:04.961 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:16:04.972 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:16:04.973 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:16:04.975 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:16:05.370 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:16:06.451 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 1089.5566ms
+2023-12-24 01:16:06.712 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:16:06.738 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:16:06.772 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.9128ms
+2023-12-24 01:16:06.778 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 39.4108ms
+2023-12-24 01:16:07.332 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:16:07.604 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 271.7420ms
+2023-12-24 01:16:26.361 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="41023235-840c-468f-9a2b-6f3a29793151" 17243
+2023-12-24 01:16:26.373 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:16:26.432 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-24 01:16:27.564 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-24 01:16:30.155 +05:00 [INF] Executed DbCommand (96ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-24 01:16:30.296 +05:00 [INF] Resume added successfully 
+2023-12-24 01:16:30.314 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-24 01:16:30.372 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 3925.0496ms
+2023-12-24 01:16:30.378 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:16:30.390 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="41023235-840c-468f-9a2b-6f3a29793151" 17243 - 200 - application/json;+charset=utf-8 4028.8089ms
+2023-12-24 01:26:49.282 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:26:49.806 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:26:49.961 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:26:49.972 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:26:50.014 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:26:50.267 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:26:51.326 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:26:52.295 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 979.9778ms
+2023-12-24 01:26:52.348 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:26:52.348 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:26:52.358 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 10.4316ms
+2023-12-24 01:26:52.395 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.0369ms
+2023-12-24 01:26:53.096 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:26:53.352 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 255.8744ms
+2023-12-24 01:27:19.666 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="bff20982-f24b-4b1a-b474-ff15b1bf6853" 17243
+2023-12-24 01:27:19.673 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:27:19.727 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-24 01:27:20.781 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-24 01:27:21.659 +05:00 [INF] Executed DbCommand (67ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-24 01:27:21.803 +05:00 [INF] Resume added successfully 
+2023-12-24 01:27:21.823 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-24 01:27:21.868 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 2129.7468ms
+2023-12-24 01:27:21.871 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:27:21.885 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="bff20982-f24b-4b1a-b474-ff15b1bf6853" 17243 - 200 - application/json;+charset=utf-8 2218.5313ms
+2023-12-24 01:29:06.236 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:29:06.257 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 20.9328ms
+2023-12-24 01:29:06.298 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:29:06.298 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:29:06.300 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 2.3323ms
+2023-12-24 01:29:06.316 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.0240ms
+2023-12-24 01:29:06.496 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:29:06.502 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 5.8894ms
+2023-12-24 01:29:48.976 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:29:48.993 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 17.4124ms
+2023-12-24 01:29:49.065 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:29:49.068 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:29:49.072 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 3.5112ms
+2023-12-24 01:29:49.101 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.2505ms
+2023-12-24 01:29:49.369 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:29:49.376 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 7.2780ms
+2023-12-24 01:30:02.397 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:30:02.752 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:30:02.755 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:30:02.765 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:30:02.767 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:30:02.769 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:30:02.994 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:30:03.596 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 608.7043ms
+2023-12-24 01:30:03.627 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:30:03.627 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:30:03.634 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 7.1776ms
+2023-12-24 01:30:03.667 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.6947ms
+2023-12-24 01:30:03.944 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:30:04.189 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 244.7461ms
+2023-12-24 01:30:10.634 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:30:10.646 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 12.0221ms
+2023-12-24 01:30:10.681 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:30:10.681 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:30:10.685 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 3.9894ms
+2023-12-24 01:30:10.700 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.9429ms
+2023-12-24 01:30:10.841 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:30:10.846 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 5.7135ms
+2023-12-24 01:30:23.760 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:30:23.775 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 15.7187ms
+2023-12-24 01:30:23.829 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:30:23.829 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:30:23.831 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 2.3194ms
+2023-12-24 01:30:23.850 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 21.4091ms
+2023-12-24 01:30:24.033 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:30:24.041 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 7.6893ms
+2023-12-24 01:30:51.123 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:30:51.478 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:30:51.481 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:30:51.487 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:30:51.488 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:30:51.490 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:30:52.357 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:30:52.810 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:30:52.827 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 478.4371ms
+2023-12-24 01:30:52.827 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 16.0621ms
+2023-12-24 01:30:52.866 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:30:52.936 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 69.4039ms
+2023-12-24 01:30:53.067 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:30:53.347 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 280.4387ms
+2023-12-24 01:32:14.397 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="96774072-208e-4b38-9a8e-aa402e669465" 15120
+2023-12-24 01:32:14.405 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:32:14.456 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-24 01:32:16.119 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-24 01:32:18.094 +05:00 [INF] Executed DbCommand (97ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-24 01:32:18.237 +05:00 [INF] Resume added successfully 
+2023-12-24 01:32:18.253 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-24 01:32:18.294 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 3823.4437ms
+2023-12-24 01:32:18.297 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:32:18.309 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="96774072-208e-4b38-9a8e-aa402e669465" 15120 - 200 - application/json;+charset=utf-8 3912.0927ms
+2023-12-24 01:33:02.505 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:33:02.732 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:33:02.734 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:33:02.742 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:33:02.744 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:33:02.745 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:33:02.899 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:33:03.385 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 490.3649ms
+2023-12-24 01:33:03.562 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:33:03.562 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:33:03.569 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 7.4421ms
+2023-12-24 01:33:03.603 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.7570ms
+2023-12-24 01:33:04.441 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:33:04.747 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 305.4847ms
+2023-12-24 01:33:15.235 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="ac72f062-d156-4d71-ba58-8bf37b3cbac5" 15120
+2023-12-24 01:33:15.245 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:33:15.303 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-24 01:33:16.764 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-24 01:33:17.605 +05:00 [INF] Executed DbCommand (107ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-24 01:33:17.717 +05:00 [ERR] Resume added successfully 
+2023-12-24 01:33:17.730 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-24 01:33:17.761 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 2448.974ms
+2023-12-24 01:33:17.765 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:33:17.774 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="ac72f062-d156-4d71-ba58-8bf37b3cbac5" 15120 - 200 - application/json;+charset=utf-8 2539.1980ms
+2023-12-24 01:36:11.566 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-24 01:36:11.967 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-24 01:36:11.970 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-24 01:36:11.977 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-24 01:36:12.002 +05:00 [INF] Hosting environment: Development
+2023-12-24 01:36:12.015 +05:00 [INF] Content root path: D:\Universty\Semester 7\FinalYearProject\LatestProject\Resume\
+2023-12-24 01:36:12.726 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-24 01:36:13.740 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 1042.1466ms
+2023-12-24 01:36:13.784 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-24 01:36:13.784 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-24 01:36:13.795 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 10.6251ms
+2023-12-24 01:36:13.835 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.2091ms
+2023-12-24 01:36:15.118 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-24 01:36:15.394 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 275.4252ms
+2023-12-24 01:42:56.161 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="7e3620e1-69da-4523-94ea-2ca3ec579859" 15120
+2023-12-24 01:42:56.168 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:42:56.223 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-24 01:42:57.131 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-24 01:42:59.789 +05:00 [INF] Executed DbCommand (88ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-24 01:42:59.925 +05:00 [INF] Resume added successfully 
+2023-12-24 01:42:59.941 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-24 01:42:59.978 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 3740.8983ms
+2023-12-24 01:42:59.981 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-24 01:42:59.995 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="7e3620e1-69da-4523-94ea-2ca3ec579859" 15120 - 200 - application/json;+charset=utf-8 3834.2797ms
+2023-12-26 23:02:26.889 +05:00 [INF] User profile is available. Using 'C:\Users\accer\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-12-26 23:02:27.243 +05:00 [INF] Now listening on: https://localhost:7142
+2023-12-26 23:02:27.252 +05:00 [INF] Now listening on: http://localhost:5161
+2023-12-26 23:02:27.263 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-12-26 23:02:27.266 +05:00 [INF] Hosting environment: Development
+2023-12-26 23:02:27.272 +05:00 [INF] Content root path: C:\Users\accer\Desktop\developerhunter-main\Resume\
+2023-12-26 23:02:28.103 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger - -
+2023-12-26 23:02:28.275 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger - - - 301 0 - 178.3728ms
+2023-12-26 23:02:28.278 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/index.html - -
+2023-12-26 23:02:28.697 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/index.html - - - 200 - text/html;charset=utf-8 418.4372ms
+2023-12-26 23:02:28.705 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/swagger-ui-bundle.js - -
+2023-12-26 23:02:28.706 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/swagger-ui.css - -
+2023-12-26 23:02:28.706 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/swagger-ui-standalone-preset.js - -
+2023-12-26 23:02:28.706 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - -
+2023-12-26 23:02:28.756 +05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-12-26 23:02:28.765 +05:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-12-26 23:02:28.770 +05:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-12-26 23:02:28.782 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_framework/aspnetcore-browser-refresh.js - - - 200 11982 application/javascript;+charset=utf-8 76.2509ms
+2023-12-26 23:02:28.808 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/swagger-ui.css - - - 200 143632 text/css 102.2884ms
+2023-12-26 23:02:28.810 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 104.3255ms
+2023-12-26 23:02:28.812 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 106.7187ms
+2023-12-26 23:02:28.814 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/_vs/browserLink - -
+2023-12-26 23:02:28.930 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 116.1195ms
+2023-12-26 23:02:29.248 +05:00 [INF] Request starting HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - -
+2023-12-26 23:02:29.599 +05:00 [INF] Request finished HTTP/2 GET https://localhost:7142/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 350.6136ms
+2023-12-26 23:02:42.638 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="daef58a7-f443-4613-9139-1156d76cef96" 15120
+2023-12-26 23:02:42.646 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-26 23:02:42.696 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-26 23:02:44.115 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-26 23:02:47.523 +05:00 [INF] Executed DbCommand (106ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-26 23:02:47.635 +05:00 [INF] Resume added successfully 
+2023-12-26 23:02:47.643 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-26 23:02:47.691 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 4978.9598ms
+2023-12-26 23:02:47.697 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-26 23:02:47.705 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="daef58a7-f443-4613-9139-1156d76cef96" 15120 - 200 - application/json;+charset=utf-8 5066.5481ms
+2023-12-26 23:04:46.703 +05:00 [INF] Request starting HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="6969b040-9fd0-4f66-8562-fa8a67ad1b2c" 15120
+2023-12-26 23:04:46.707 +05:00 [INF] Executing endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-26 23:04:46.710 +05:00 [INF] Route matched with {action = "Post", controller = "Resume"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ResumePdf]] Post(Microsoft.AspNetCore.Http.IFormFile) on controller Resume.Controllers.ResumeController (Resume).
+2023-12-26 23:04:46.852 +05:00 [INF] Entity Framework Core 6.0.0 initialized 'ResumeContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.0' with options: None
+2023-12-26 23:04:46.878 +05:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = -1) (DbType = Binary)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [resumes] ([Pdf])
+VALUES (@p0);
+SELECT [resumeId]
+FROM [resumes]
+WHERE @@ROWCOUNT = 1 AND [resumeId] = scope_identity();
+2023-12-26 23:04:46.887 +05:00 [INF] Resume added successfully 
+2023-12-26 23:04:46.890 +05:00 [INF] Executing OkObjectResult, writing value of type 'ResumePdf'.
+2023-12-26 23:04:46.894 +05:00 [INF] Executed action Resume.Controllers.ResumeController.Post (Resume) in 179.9674ms
+2023-12-26 23:04:46.897 +05:00 [INF] Executed endpoint 'Resume.Controllers.ResumeController.Post (Resume)'
+2023-12-26 23:04:46.900 +05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7142/api/resume multipart/form-data;+boundary="6969b040-9fd0-4f66-8562-fa8a67ad1b2c" 15120 - 200 - application/json;+charset=utf-8 196.4370ms
