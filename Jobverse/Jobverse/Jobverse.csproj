@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="DinkToPdfCopy" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -14,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Company\" />
+    <Folder Include="Views\Resume\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

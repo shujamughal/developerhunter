@@ -47,8 +47,16 @@ namespace CompanyProfile.Controllers
             }
 
             // Add the new company
-            await _companyRepository.AddCompanyAsync(company);
-            return CreatedAtAction(nameof(GetCompanyByEmail), new { email = company.Email }, company);
+            var addCompanyResponse = await _companyRepository.AddCompanyAsync(company);
+            if (addCompanyResponse.StatusCode == 200)
+            {
+                return CreatedAtAction(nameof(GetCompanyByEmail), new { email = company.Email }, company);
+            }
+            else
+            {
+                // Some error occurred while adding the company
+                return StatusCode((int)addCompanyResponse.StatusCode);
+            }
         }
 
         [HttpPut("{email}")]

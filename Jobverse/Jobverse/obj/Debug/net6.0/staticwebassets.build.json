@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Bpo/EWWhRkTwsmsBNGQ+ABu/udMyIzN6/ZbW3gf7qVU=",
+  "Hash": "arumFdd95y/78+5iizWZrk9civtzBSACZ2ueL1xV11M=",
   "Source": "Jobverse",
   "BasePath": "_content/Jobverse",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Jobverse\\wwwroot",
       "Source": "Jobverse",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Jobverse.styles.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Jobverse.styles.css",
       "SourceId": "Jobverse",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "Jobverse.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Jobverse.styles.css"
+      "OriginalItemSpec": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Jobverse.styles.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Jobverse.bundle.scp.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Jobverse.bundle.scp.css",
       "SourceId": "Jobverse",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "Jobverse.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Jobverse.bundle.scp.css"
+      "OriginalItemSpec": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Jobverse.bundle.scp.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\applyJob.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\applyJob.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/applyJob.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\applyJob.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/bootstrap.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap.map",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap.map",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/bootstrap.map",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.map"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/bootstrap/bootstrap.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap-grid.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap-grid.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/bootstrap/bootstrap-grid.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap-reboot.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\bootstrap\\bootstrap-reboot.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/bootstrap/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\jobApplication.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\jobApplication.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/jobApplication.css",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\jobApplication.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\Login.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\Login.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/Login.css",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\main.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\main.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/main.css",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\main.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\main.map",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\main.map",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/main.map",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\css\\main.map"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\css\\Signup.css",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\Signup.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "css/Signup.css",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Signup.css"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\images\\logo-no-background.png",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\images\\logo-no-background.png",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "images/logo-no-background.png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo-no-background.png"
     },
     {
-      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\js\\CreateCompanyProfile.js",
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\js\\CreateCompanyProfile.js",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter\\Jobverse\\Jobverse\\wwwroot\\",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
       "BasePath": "_content/Jobverse",
       "RelativePath": "js/CreateCompanyProfile.js",
       "AssetKind": "All",

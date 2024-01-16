@@ -1,5 +1,6 @@
 ﻿using CompanyProfile.Models;
 using CompanyProfile.Repository;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -35,10 +36,21 @@ public class CompanyRepository : ICompanyRepository
         return null;  // Authentication successful
     }
 
-    public async Task AddCompanyAsync(Company company)
+    public async Task<ObjectResult> AddCompanyAsync(Company company)
     {
-        _context.Companies.Add(company);
-        await SaveChangesAsync();
+        var companytrue = await _context.Companies.SingleOrDefaultAsync(x => x.Email == company.Email);
+        if(companytrue==null)
+        {
+            return new ObjectResult(new { Message = "Email already exists", StatusCode = 400 });
+        }
+        else
+        {
+            var addedCompany = _context.Companies.Add(company);
+            await SaveChangesAsync();
+
+            return new ObjectResult(new { Message = "Company added successfully", StatusCode = 200, AddedCompany = addedCompany });
+        }
+        
     }
 
     public async Task UpdateCompanyAsync(Company company)

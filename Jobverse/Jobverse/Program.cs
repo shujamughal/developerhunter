@@ -1,4 +1,8 @@
 using System.Net.Http;
+using DinkToPdf;
+using DinkToPdf.Contracts;
+using Jobverse.Models;
+using Jobverse.Models.Resume.Resume;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,7 +14,9 @@ builder.Services.AddControllersWithViews();
 
 // Add HttpClient to the services
 builder.Services.AddHttpClient();
-
+builder.Services.AddScoped<ErrorViewModel>();
+builder.Services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
+builder.Services.AddTransient < PdfService >();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

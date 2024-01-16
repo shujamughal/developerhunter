@@ -1,32 +1,41 @@
-﻿using Jobverse.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using Newtonsoft.Json; // Make sure to add this using statement
 
-namespace Jobverse.Controllers
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly IHttpClientFactory _httpClientFactory;
+
+    public HomeController(IHttpClientFactory httpClientFactory)
     {
-        private readonly ILogger<HomeController> _logger;
+        _httpClientFactory = httpClientFactory;
+    }
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+    public async Task<IActionResult> Index()
+    {
+        var apiEndpoint = "https://localhost:7222/api/jobsapi"; // Replace with your actual API endpoint
 
-        public IActionResult Index()
+        using (var client = _httpClientFactory.CreateClient())
         {
-            return View();
-        }
+            var response = await client.GetAsync(apiEndpoint);
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+                var jobPostings = JsonConvert.DeserializeObject<List<Jobs>>(content);
+                // Console.WriteLine("Usama");
+                //Console.WriteLine(jobPostings[0].Location);
+                return View(jobPostings);
+            }
+            else
+            {
+                // Handle error if needed
+                return View("Error");
+            }
         }
     }
 }

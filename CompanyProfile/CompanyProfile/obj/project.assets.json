@@ -2712,11 +2712,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\CompanyProfile\\CompanyProfile\\CompanyProfile.csproj",
+      "projectUniqueName": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\CompanyProfile\\CompanyProfile\\CompanyProfile.csproj",
       "projectName": "CompanyProfile",
-      "projectPath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\CompanyProfile\\CompanyProfile\\CompanyProfile.csproj",
+      "projectPath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\CompanyProfile\\CompanyProfile\\CompanyProfile.csproj",
       "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
-      "outputPath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\CompanyProfile\\CompanyProfile\\obj\\",
+      "outputPath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\CompanyProfile\\CompanyProfile\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

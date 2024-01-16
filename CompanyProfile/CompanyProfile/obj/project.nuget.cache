@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "15tcs8MCbhE13Qj99PVMH6o5Hhm+RrkFrizgsUpk14LSFhFz0zZ2JZPSLExPz+BzeEhg/W+uyhpNVV3enUlPQw==",
+  "dgSpecHash": "Tl7NSTJV448iZ+miOOdPWWDgtAfAqcqJxO40NJ8RXcrbVoCA7gXbOiPQPFZnN7dLgw1J7k/dNGB/KCUdsvjJ3Q==",
   "success": true,
-  "projectFilePath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\CompanyProfile\\CompanyProfile\\CompanyProfile.csproj",
+  "projectFilePath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\CompanyProfile\\CompanyProfile\\CompanyProfile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dell\\.nuget\\packages\\fluentmigrator.abstractions\\3.3.2\\fluentmigrator.abstractions.3.3.2.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\fluentmigrator.extensions.sqlserver\\3.3.2\\fluentmigrator.extensions.sqlserver.3.3.2.nupkg.sha512",

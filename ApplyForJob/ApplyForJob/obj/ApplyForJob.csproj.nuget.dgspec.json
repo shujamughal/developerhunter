@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj": {}
+    "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj": {}
   },
   "projects": {
-    "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj": {
+    "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
+        "projectUniqueName": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
         "projectName": "ApplyForJob",
-        "projectPath": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
-        "packagesPath": "C:\\Users\\X1 Carbon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\X1 Carbon\\Dropbox\\My PC (DESKTOP-58DM7T9)\\Desktop\\FYP\\Main Github Project\\developerhunter\\ApplyForJob\\ApplyForJob\\obj\\",
+        "projectPath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\ApplyForJob\\ApplyForJob\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\X1 Carbon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,17 +45,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "MassTransit.AspNetCore": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.3.1, )"
-            },
-            "MassTransit.RabbitMQ": {
-              "target": "Package",
-              "version": "[8.1.2, )"
-            },
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[6.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -62,13 +59,15 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-            },
-            "RabbitMQ.Client": {
-              "target": "Package",
-              "version": "[6.8.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -94,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
