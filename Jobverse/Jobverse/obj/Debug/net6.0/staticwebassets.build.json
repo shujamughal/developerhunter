@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "arumFdd95y/78+5iizWZrk9civtzBSACZ2ueL1xV11M=",
+  "Hash": "0M5/qNGR3gR5c9Uz9ZTALHFI26ufKcorFa6ydBKzLfg=",
   "Source": "Jobverse",
   "BasePath": "_content/Jobverse",
   "Mode": "Default",
@@ -170,6 +170,23 @@
       "OriginalItemSpec": "wwwroot\\css\\jobApplication.css"
     },
     {
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\JobPosting.css",
+      "SourceId": "Jobverse",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
+      "BasePath": "_content/Jobverse",
+      "RelativePath": "css/JobPosting.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\JobPosting.css"
+    },
+    {
       "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\Login.css",
       "SourceId": "Jobverse",
       "SourceType": "Discovered",
@@ -219,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\main.map"
+    },
+    {
+      "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\reviewApplication.css",
+      "SourceId": "Jobverse",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\",
+      "BasePath": "_content/Jobverse",
+      "RelativePath": "css/reviewApplication.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\reviewApplication.css"
     },
     {
       "Identity": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\Signup.css",

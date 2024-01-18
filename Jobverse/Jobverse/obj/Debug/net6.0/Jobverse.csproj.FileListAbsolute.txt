@@ -256,3 +256,10 @@ D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\J
 D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\obj\Debug\net6.0\Jobverse.pdb
 D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\obj\Debug\net6.0\Jobverse.genruntimeconfig.cache
 D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\obj\Debug\net6.0\ref\Jobverse.dll
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\DinkToPdf.dll
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\runtimes\linux-x64\native\libwkhtmltox.so
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\runtimes\linux-x86\native\libwkhtmltox.so
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\runtimes\osx-x64\native\libwkhtmltox.dylib
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\runtimes\osx-x86\native\libwkhtmltox.dylib
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\runtimes\win7-x64\native\libwkhtmltox.dll
+D:\6TH SEMESTER\SCAD\WebApplications\developerhunter-main\developerhunter-main\Jobverse\Jobverse\bin\Debug\net6.0\runtimes\win7-x86\native\libwkhtmltox.dll

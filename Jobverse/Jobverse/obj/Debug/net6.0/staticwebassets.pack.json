@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Jobverse.bundle.scp.css"
     },
     {
+      "Id": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\JobPosting.css",
+      "PackagePath": "staticwebassets\\css\\JobPosting.css"
+    },
+    {
       "Id": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
@@ -47,6 +51,10 @@
     {
       "Id": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\main.map",
       "PackagePath": "staticwebassets\\css\\main.map"
+    },
+    {
+      "Id": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\css\\reviewApplication.css",
+      "PackagePath": "staticwebassets\\css\\reviewApplication.css"
     },
     {
       "Id": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\developerhunter-main\\developerhunter-main\\Jobverse\\Jobverse\\wwwroot\\images\\logo-no-background.png",

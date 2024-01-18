@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Jobverse.Models
+namespace ApplyForJob.Models
 {
     public class JobApplication
     {

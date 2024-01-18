@@ -21,7 +21,7 @@
                     <img src="~/images/logo-no-background.png" class="img-fluid custom-logo" alt="Jobverse" />
                 </div>
                 <div class="col-md-9 col-lg-6 col-xl-5 custom-form-div h-100">
-                    <form class="custom-form">
+                    <form class="custom-form" asp-controller="Employee" asp-action="LoginSuccess" method="post">
                         <div class="d-flex flex-row align-items-center justify-content-center justify-content-center">
                             <p class="lead fw-normal mb-0 me-3 custom-font-size">Sign in with</p>
                             <button type="button" class="btn-floating mx-1 custom-google-icon-button">
@@ -34,12 +34,12 @@
                         </div>
 
                         <div class="form-outline mb-4">
-                            <input type="email" id="form3Example3" class="form-control custom-form-input"
+                            <input type="email" id="email" name="Email" class="form-control custom-form-input"
                                    placeholder="Enter email address" />
                         </div>
-
+                        <input name="Username" style="display:none"/>
                         <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control custom-form-input"
+                            <input type="password" id="password" name="Password" class="form-control custom-form-input"
                                    placeholder="Enter password" />
                         </div>
 
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary custom-login-button"
+                            <button type="submit" id="signInBtn" class="btn btn-primary custom-login-button"
                                     style="padding-left: 2.5rem; padding-right: 2.5rem;">
                                 Sign in
                             </button>

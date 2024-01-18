@@ -23,12 +23,19 @@ namespace Authentication.Controllers
                 var result = await _authService.RegisterUser(user);
                 if (result.Succeeded)
                 {
-                    return Ok("Registration successful");
+                    int code = 200;
+                    string message = "Register successful";
+
+                    return StatusCode(code, new { Code = code, Message = message });
                 }
                 else
                 {
                     var errors = result.Errors.Select(e => e.Description).ToList();
-                    return BadRequest(errors);
+                    int code = 409;
+                    string message = string.Join(", ", errors);
+                    Console.WriteLine("errors");
+
+                    return StatusCode(code, new { Code = code, Message = message });
                 }
             }
 

@@ -48,14 +48,16 @@ namespace CompanyProfile.Controllers
 
             // Add the new company
             var addCompanyResponse = await _companyRepository.AddCompanyAsync(company);
-            if (addCompanyResponse.StatusCode == 200)
+            if (addCompanyResponse == 200)
             {
-                return CreatedAtAction(nameof(GetCompanyByEmail), new { email = company.Email }, company);
+                Console.WriteLine("yes its added ");
+                return CreatedAtAction(nameof(GetCompanyByEmail), new { email = company.Email }, new { Message = "Company added successfully", StatusCode = 201, Company = company });
+
             }
             else
             {
                 // Some error occurred while adding the company
-                return StatusCode((int)addCompanyResponse.StatusCode);
+                return StatusCode(addCompanyResponse);
             }
         }
 
@@ -103,11 +105,13 @@ namespace CompanyProfile.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(string email, string password)
+        public async Task<IActionResult> Login(string Email, string Password)
         {
-            var company = await _companyRepository.AuthenticateAsync(email, password);
+            Console.WriteLine(Email);
+            var company = await _companyRepository.AuthenticateAsync(Email, Password);
             if (company == null)
             {
+               
                 return Unauthorized("Invalid email or password");
             }
             var token = _jwtClass.GenerateJwtToken(company.Email);
@@ -117,12 +121,14 @@ namespace CompanyProfile.Controllers
                 Secure = true,
                 Expires = DateTime.UtcNow.AddHours(22)
             };
+            Console.WriteLine(company.Password);
             return Ok(new
             {
                 Message = "Login successful",
                 Token = token,
                 CompanyEmail = company.Email
             });
+            
         }
 
         [HttpDelete("{email}")]

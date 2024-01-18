@@ -25,30 +25,34 @@ public class CompanyRepository : ICompanyRepository
     }
     public async Task<Company> AuthenticateAsync(string email, string password)
     {
+        //Console.WriteLine(passwr);
         var company = await _context.Companies.SingleOrDefaultAsync(x => x.Email == email);
 
         // Check if the company exists and if the password matches
         if (company != null && company.Password == password)
         {
+            Console.WriteLine("Password matches");
             return company; // Authentication successful
         }
 
         return null;  // Authentication successful
     }
 
-    public async Task<ObjectResult> AddCompanyAsync(Company company)
+    public async Task<int> AddCompanyAsync(Company company)
     {
-        var companytrue = await _context.Companies.SingleOrDefaultAsync(x => x.Email == company.Email);
-        if(companytrue==null)
+        //Console.WriteLine("Yess here ");
+        var companyExists = await _context.Companies.AnyAsync(x => x.Email == company.Email);
+
+        if (companyExists)
         {
-            return new ObjectResult(new { Message = "Email already exists", StatusCode = 400 });
+            return (307);
         }
         else
         {
             var addedCompany = _context.Companies.Add(company);
             await SaveChangesAsync();
-
-            return new ObjectResult(new { Message = "Company added successfully", StatusCode = 200, AddedCompany = addedCompany });
+            Console.WriteLine("Yess here ");
+            return (200);
         }
         
     }

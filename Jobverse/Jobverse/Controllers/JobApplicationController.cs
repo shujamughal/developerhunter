@@ -1,4 +1,5 @@
-﻿using Jobverse.Models;
+﻿using ApplyForJob.Models;
+using Jobverse.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
@@ -14,7 +15,8 @@ namespace Jobverse.Controllers
         public JobApplicationController(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7025/");
+            _httpClient.BaseAddress = new Uri("https://localhost:5141/");
+            //7025
         }
 
         public async Task<IActionResult> JobApplication()

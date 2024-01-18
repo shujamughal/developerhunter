@@ -18,21 +18,10 @@
           </div>
           <nav id="nav-menu-container">
             <ul class="nav-menu">
-              <li class="menu-active"><a href="index.html">Home</a></li>
-              <li><a href="about-us.html">About Us</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="price.html">Price</a></li>
-              <li><a href="blog-home.html">Blog</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li class="menu-has-children">
-                <a href="">Pages</a>
-                <ul>
-                  <li><a href="elements.html">elements</a></li>
-                  <li><a href="search.html">search</a></li>
-                  <li><a href="single.html">single</a></li>
-                </ul>
-              </li>
-              <li><a class="ticker-btn" href="#">Signup</a></li>
+                        <li class="menu-active"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Resume" asp-action="BuildResume">Resume</a></li>
+                        <li><a asp-controller="CreateCompanyProfile" asp-action="SignupEmployer">Switch Employer</a></li>
+                        <li><a asp-controller="Employee" asp-action="SignupEmployee" class="ticker-btn">Signup</a></li>
               <li><a class="ticker-btn" href="#">Login</a></li>
             </ul>
           </nav>
