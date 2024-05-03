@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Jobverse</title>
+</head>
+<body>
+    <header id="header" id="home" style="background-color: #333a56">
+      <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+          <div id="logo">
+            <a
+              asp-controller="Employer" asp-action="JobsPosted" style="font-size: 18px; color: #f9f9f9; margin-left: 20px">Jobverse</a>
+          </div>
+          <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a asp-controller="Employer" asp-action="LogoutEmployer" class="ticker-btn">Logout</a></li>                      
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
