@@ -1,0 +1,48 @@
+[
+  {
+    "ContainingType": "jobPosting.Controllers.JobPostingController",
+    "Method": "Get",
+    "RelativePath": "api/JobPosting",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[jobPosting.Models.JobPosting, jobPosting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "jobPosting.Controllers.JobPostingController",
+    "Method": "Post",
+    "RelativePath": "api/JobPosting",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jobPosting",
+        "Type": "jobPosting.Models.JobPosting",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "jobPosting.Models.JobPosting",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

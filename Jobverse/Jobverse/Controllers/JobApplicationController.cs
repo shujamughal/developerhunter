@@ -3,6 +3,7 @@ using Jobverse.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,64 +16,116 @@ namespace Jobverse.Controllers
         public JobApplicationController(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:5141/");
-            //7025
         }
-
-        public async Task<IActionResult> JobApplication()
+        public async Task<IActionResult> JobApplication(int jobId)
         {
-            return View();
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> SaveApplication([FromBody] JobApplication jobApplication)
-        {
-            try
+			List<ResumePdf> resumes = await getResumesEmailAsync("usamaikram228@gmail.com");
+			if (Request.Cookies["Username"] != null)
             {
-                string apiEndpoint = "api/JobApplication";
-
-                // Serialize the FormDataModel to JSON
-                var jsonContent = new StringContent(JsonConvert.SerializeObject(jobApplication), Encoding.UTF8, "application/json");
-
-                // Make a POST request to the API endpoint
-                var response = await _httpClient.PostAsync(apiEndpoint, jsonContent);
-                Console.WriteLine("...1.2");
-
-                // Check if the request was successful
-                if (response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine("...1");
-                    // Optionally, you can process the response from the API
-                    var apiResponse = await response.Content.ReadAsStringAsync();
-                    // You can use apiResponse as needed
-
-                    return Json(new { success = true, message = "Application saved successfully" });
-                }
-                else
-                {
-                    Console.WriteLine("...2");
-                    // Handle the case when the API request is not successful
-                    return Json(new { success = false, message = "Error in API request" });
-                }
+                Console.WriteLine("cookie exists");
+                Console.WriteLine(Request.Cookies["Username"] == "");
+                Console.WriteLine(Request.Cookies["Username"]);
+                ViewBag.JobId = jobId;
+                return View(resumes);
             }
-
-            catch (HttpRequestException ex)
+            else
             {
-                Console.WriteLine("HTTP request error: " + ex.Message);
-
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine("Inner exception: " + ex.InnerException.Message);
-                }
-
-                return Json(new { success = false, message = "Error in HTTP request" });
+                //return RedirectToAction("SignupEmployee", "Employee");
+                //Console.WriteLine(jobId);
+                ViewBag.JobId = jobId;
+                return View(resumes);
             }
-
         }
+		private async Task<List<ResumePdf>> getResumesEmailAsync(string email)
+		{
+			var response = await _httpClient.GetAsync($"https://localhost:7142/api/resume/resumes/{email}");
+			List<ResumePdf> resumes = new List<ResumePdf>();
+			if (response.IsSuccessStatusCode)
+			{
+				var content = await response.Content.ReadAsStringAsync();
+				resumes = JsonConvert.DeserializeObject<List<ResumePdf>>(content);
+				return resumes;
+			}
+			else
+			{
+				return resumes;
+			}
 
-        public IActionResult Success()
-        {
-            return View();
-        }
+
+		}
+		[HttpPost]
+		public async Task<IActionResult> SaveApplication(int JobId,string Applier, string UserEmail, string PhoneNumber, IFormFile resume, int Experience , int resumeId)
+		{
+			try
+			{
+				if(resume!= null)
+				{
+				
+					var addedResumeResponse = await AddResumeAsync(UserEmail, resume, "https://localhost:7142/");
+					//Console.WriteLine(addedResumeResponse);
+					// Check if adding resume was successful
+					if (!addedResumeResponse.IsSuccessStatusCode)
+					{
+						return Json(new { success = false, message = "Error adding resume" });
+					}
+					var addedResume = JsonConvert.DeserializeObject<ResumePdf>(await addedResumeResponse.Content.ReadAsStringAsync());
+					resumeId = addedResume.ResumeId;
+				}
+				var saveApplicationResponse = await SaveJobApplicationAsync(JobId,Applier, UserEmail, PhoneNumber, resumeId, Experience, "https://localhost:7025/");
+
+				if (!saveApplicationResponse.IsSuccessStatusCode)
+				{
+					return Json(new { success = false, message = "Error saving job application" });
+				}
+
+				return View();
+			}
+			catch (Exception ex)
+			{
+				return Json(new { success = false, message = "Error: " + ex.Message });
+			}
+		}
+
+		private async Task<HttpResponseMessage> AddResumeAsync(string userEmail, IFormFile resume, string baseUrl)
+		{
+			
+			using (var ms = new MemoryStream())
+			{
+				
+				await resume.CopyToAsync(ms);
+				
+				var resumeContent = new ByteArrayContent(ms.ToArray());
+				resumeContent.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+				var formData = new MultipartFormDataContent();
+				Console.WriteLine(resumeContent);
+				formData.Add(resumeContent, "file", resume.FileName);
+				formData.Add(new StringContent(userEmail), "userEmail");
+				Console.WriteLine("Form Data: ", formData);
+
+				return await _httpClient.PostAsync(baseUrl + "api/resume", formData);
+			}
+		}
+
+		// Method to save job application
+		private async Task<HttpResponseMessage> SaveJobApplicationAsync(int jobId,string applier, string userEmail, string phoneNumber, int addedResume,int experience, string baseUrl)
+		{
+			var jobApplication = new JobApplication
+			{
+				Applier = applier,
+				UserEmail = userEmail,
+				JobId = jobId,
+				PhoneNumber = phoneNumber,
+				ResumeId = addedResume,
+				Experience = experience
+			};
+
+			var jsonContent = new StringContent(JsonConvert.SerializeObject(jobApplication), Encoding.UTF8, "application/json");
+			return await _httpClient.PostAsync(baseUrl + "api/JobApplication", jsonContent);
+		}
+
+		public IActionResult Success()
+            {
+                return View();
+            }
     }
 }

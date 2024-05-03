@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+	// Retrieve the JobId from the ViewBag
+	var jobId = ViewBag.JobId;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
@@ -31,31 +35,33 @@
 		  <div class="progress-heading mb-3">
 			<h3>Add your contact information</h3>
 		  </div>
-
-		  <form id="step1">
+				<form action="/jobApplication/SaveApplication" method="post" enctype="multipart/form-data">
+		  <div id="step1">
 		  @*<form id="step1">*@
 			<div class="form-group">
 				<div class="form-outline mb-4">
+					@*@Console.WriteLine(jobId);*@
+								<input id="jobId" type="hidden" value="@jobId" name="JobId" />
 				  <input type="text" id="first_name" class="form-control custom-form-input"
-					placeholder="Enter first name" />
+					placeholder="Enter name" name="Applier" />
 				</div>
 			</div>
-			<div class="form-group">
+			@*<div class="form-group">
 				<div class="form-outline mb-4">
 				  <input type="text" id="last_name" class="form-control custom-form-input"
 					placeholder="Enter last name" />
 				</div>
-			</div>
+			</div>*@
 			<div class="form-group">
 				<div class="form-outline mb-4">
-				  <input type="email" id="email" class="form-control custom-form-input"
-					placeholder="Enter email address" />
+				<input type="email" id="email"  class="form-control custom-form-input"
+									   placeholder="Enter email address" name="UserEmail" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="form-outline mb-4">
 				  <input type="tel" id="phone" class="form-control custom-form-input"
-					placeholder="Enter phone number" />
+								   placeholder="Enter phone number" name="PhoneNumber" />
 				</div>
 			</div>
 			<!-- ... More contact information fields ... -->
@@ -64,23 +70,31 @@
 			  class="text-uppercase next-btn mx-auto d-block"
 			  >Next</a
 			>
-		  </form>
+		  </div>
 
-		  <!-- Profile Completeness Form - Step 2 (Hidden by default) -->
-		  <form id="step2" style="display: none">
-			<div class="form-group">
-			  <label for="resume">Upload Resume</label>
-			  <input type="file" class="form-control-file" id="resume" />
-			</div>
-			<a
-			  onclick="showStep(3)"
-			  class="text-uppercase next-btn mx-auto d-block"
-			  >Next</a
-			>
-		  </form>
+					<div id="step2" style="display: none">
+						<div class="form-group">
+							<label for="resume">Upload Resume</label>
+							<input type="file" class="form-control-file" id="resume" name="resume" />
+						</div>
+						<div class="form-group">
+							<label for="jobverseResume">Select from Jobverse</label>
+							<select class="form-control" id="resumeId" name="resumeId">
+								<option value="">Select Resume</option>
+								@for (int i = 0; i < Model.Count; i++)
+								{
+									var resume = Model[i];
+									<option value="@resume.ResumeId">Resume @(i + 1)</option>
+									
+								}
+							</select>
+						</div>
+						<a onclick="showStep(3)" class="text-uppercase next-btn mx-auto d-block">Next</a>
+					</div>
+
 
 		  <!-- Profile Completeness Form - Step 3 (Hidden by default) -->
-		  <form id="step3" style="display: none">
+		  <div id="step3" style="display: none">
 			<div class="form-group">
 			  <label>Have you graduated?</label>
 			  <div class="form-check">
@@ -133,21 +147,19 @@
 			  >Next</a
 			>
 
-		  </form>
+		  </div>
 		  <!-- Profile Completeness Form - Step 4 (Hidden by default) -->
-		  <form id="step4" style="display: none">
+		  <div id="step4" style="display: none">
 			<div class="form-group">
 				<div class="form-outline mb-4">
-				  <input type="text" id="title" class="form-control custom-form-input"
-					placeholder="Enter years of experience" />
+								<input type="text" id="experience" name="Experience" class="form-control custom-form-input"
+					placeholder="Enter years of experience"  />
 				</div>
 			</div>
-			<a
-			  onclick="completeProfile()"
-			  class="text-uppercase next-btn mx-auto d-block"
-			  >Submit Application</a
-			>
-		  </form>
+						<button class="text-uppercase next-btn mx-auto d-block" type="submit">Submit Application</button>
+		  </div>
+		 
+				</form>
 		</div>
 		<div class="col-12 col-md-12 col-lg-5 d-flex justify-content-center">
 		  <div class="bg-card">
@@ -188,6 +200,21 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 	<script>
+		function getCookie(cookieName) {
+		var name = cookieName + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var cookieArray = decodedCookie.split(';');
+
+		for (var i = 0; i < cookieArray.length; i++) {
+			var cookie = cookieArray[i].trim();
+			if (cookie.indexOf(name) == 0) {
+				return cookie.substring(name.length, cookie.length);
+			}
+		}
+
+		return null;
+	}
+
 	  function showStep(step) {
 		// Hide all steps first
 		for (let i = 1; i <= 4; i++) {
@@ -224,14 +251,17 @@
 		const lastName = document.getElementById("last_name").value;
 		const email = document.getElementById("email").value;
 		const phoneNumber = document.getElementById("phone").value;
+		const experience = document.getElementById("experience").value;
 
+		var username = getCookie("Username");
+		console.log(username);
 		// JSON object
 		const formData = {
-		  JobId: 1,
-		  UserEmail: email,
+		  JobId: @ViewBag.JobId,
+		  UserEmail: username,
 		  Applier: `${firstName} ${lastName}`,
 		  PhoneNumber: phoneNumber,
-		  Experience: 0,
+		  Experience: experience,
 		  ResumeId: 98,
 		};
 

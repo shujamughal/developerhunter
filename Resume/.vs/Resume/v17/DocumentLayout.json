@@ -1,0 +1,360 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\models\\resumepdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:models\\resumepdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\models\\resumemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:models\\resumemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\handlers\\deleteresumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:handlers\\deleteresumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\commands\\deleteresumecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:commands\\deleteresumecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\repository\\resumerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:repository\\resumerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\repository\\iresumerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:repository\\iresumerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\handlers\\getresumesbyemailhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:handlers\\getresumesbyemailhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\handlers\\getresumebyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:handlers\\getresumebyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\queries\\getresumesbyemailquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:queries\\getresumesbyemailquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\queries\\getresumelistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:queries\\getresumelistquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\queries\\getresumebyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:queries\\getresumebyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\handlers\\addresumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:handlers\\addresumehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/Resume_Database/True/SqlTable/dbo.resumes.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\commands\\addresumecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:commands\\addresumecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\handlers\\getresumelisthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:handlers\\getresumelisthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\migrations\\20240221214026_newschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:migrations\\20240221214026_newschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\rabbitmq\\resumeidproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:rabbitmq\\resumeidproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|c:\\users\\accer\\desktop\\new folder (3)\\developerhunter\\resume\\rabbitmq\\iresumeidproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D282C5-E1A8-455C-A516-217341C839B6}|Resume.csproj|solutionrelative:rabbitmq\\iresumeidproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IResumeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Repository\\IResumeRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IResumeRepository.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Repository\\IResumeRepository.cs",
+              "RelativeToolTip": "Repository\\IResumeRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-21T22:55:45.869Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResumeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Repository\\ResumeRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\ResumeRepository.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Repository\\ResumeRepository.cs",
+              "RelativeToolTip": "Repository\\ResumeRepository.cs",
+              "ViewState": "AQIAACUAAABgmZmZmZkwwC8AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-21T22:55:47.967Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResumeController.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Controllers\\ResumeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ResumeController.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Controllers\\ResumeController.cs",
+              "RelativeToolTip": "Controllers\\ResumeController.cs",
+              "ViewState": "AQIAACoAAAAANzMzMzMXwDYAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T20:35:09.95Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GetResumebyIdHandler.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\GetResumebyIdHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\GetResumebyIdHandler.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\GetResumebyIdHandler.cs",
+              "RelativeToolTip": "Handlers\\GetResumebyIdHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-29T22:25:39.116Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GetResumesbyEmailQuery.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Queries\\GetResumesbyEmailQuery.cs",
+              "RelativeDocumentMoniker": "Queries\\GetResumesbyEmailQuery.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Queries\\GetResumesbyEmailQuery.cs",
+              "RelativeToolTip": "Queries\\GetResumesbyEmailQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T19:36:10.484Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ResumePdf.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Models\\ResumePdf.cs",
+              "RelativeDocumentMoniker": "Models\\ResumePdf.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Models\\ResumePdf.cs",
+              "RelativeToolTip": "Models\\ResumePdf.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T20:36:41.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResumeModel.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Models\\ResumeModel.cs",
+              "RelativeDocumentMoniker": "Models\\ResumeModel.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Models\\ResumeModel.cs",
+              "RelativeToolTip": "Models\\ResumeModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T20:36:32.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DeleteResumeHandler.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\DeleteResumeHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\DeleteResumeHandler.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\DeleteResumeHandler.cs",
+              "RelativeToolTip": "Handlers\\DeleteResumeHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T20:02:46.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeleteResumeCommand.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Commands\\DeleteResumeCommand.cs",
+              "RelativeDocumentMoniker": "Commands\\DeleteResumeCommand.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Commands\\DeleteResumeCommand.cs",
+              "RelativeToolTip": "Commands\\DeleteResumeCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T20:01:50.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GetResumesbyEmailHandler.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\GetResumesbyEmailHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\GetResumesbyEmailHandler.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\GetResumesbyEmailHandler.cs",
+              "RelativeToolTip": "Handlers\\GetResumesbyEmailHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T19:38:17.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GetResumeListQuery.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Queries\\GetResumeListQuery.cs",
+              "RelativeDocumentMoniker": "Queries\\GetResumeListQuery.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Queries\\GetResumeListQuery.cs",
+              "RelativeToolTip": "Queries\\GetResumeListQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T19:40:25.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GetResumebyIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Queries\\GetResumebyIdQuery.cs",
+              "RelativeDocumentMoniker": "Queries\\GetResumebyIdQuery.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Queries\\GetResumebyIdQuery.cs",
+              "RelativeToolTip": "Queries\\GetResumebyIdQuery.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-29T22:24:20.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AddResumeHandler.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\AddResumeHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\AddResumeHandler.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\AddResumeHandler.cs",
+              "RelativeToolTip": "Handlers\\AddResumeHandler.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T18:18:08.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "dbo.resumes [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/Resume_Database/True/SqlTable/dbo.resumes.sql",
+              "ToolTip": "dbo.resumes [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-02-25T07:06:45.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddResumeCommand.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Commands\\AddResumeCommand.cs",
+              "RelativeDocumentMoniker": "Commands\\AddResumeCommand.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Commands\\AddResumeCommand.cs",
+              "RelativeToolTip": "Commands\\AddResumeCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T18:06:46.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GetResumeListHandler.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\GetResumeListHandler.cs",
+              "RelativeDocumentMoniker": "Handlers\\GetResumeListHandler.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Handlers\\GetResumeListHandler.cs",
+              "RelativeToolTip": "Handlers\\GetResumeListHandler.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-29T21:47:42.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-25T21:34:50.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "20240221214026_NewSchema.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Migrations\\20240221214026_NewSchema.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240221214026_NewSchema.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\Migrations\\20240221214026_NewSchema.cs",
+              "RelativeToolTip": "Migrations\\20240221214026_NewSchema.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-21T21:40:27.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-02-20T20:36:17.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IResumeIdProducer.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\RabbitMQ\\IResumeIdProducer.cs",
+              "RelativeDocumentMoniker": "RabbitMQ\\IResumeIdProducer.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\RabbitMQ\\IResumeIdProducer.cs",
+              "RelativeToolTip": "RabbitMQ\\IResumeIdProducer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T20:35:13.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ResumeIdProducer.cs",
+              "DocumentMoniker": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\RabbitMQ\\ResumeIdProducer.cs",
+              "RelativeDocumentMoniker": "RabbitMQ\\ResumeIdProducer.cs",
+              "ToolTip": "C:\\Users\\accer\\Desktop\\New folder (3)\\developerhunter\\Resume\\RabbitMQ\\ResumeIdProducer.cs",
+              "RelativeToolTip": "RabbitMQ\\ResumeIdProducer.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAuwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-20T20:35:13.898Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
