@@ -43,65 +43,48 @@ namespace Jobverse.Controllers
             try
             {
                 string htmlContent = _pdfService.ConvertModelToHtml(model);
-                Console.WriteLine("1");
                 var pdfBytes = _pdfService.GeneratePdf(htmlContent);
-                Console.WriteLine("2");
 
                 using (var pdfStream = new MemoryStream(pdfBytes))
                 {
                     using (var httpClient = new HttpClient())
                     {
-                        httpClient.BaseAddress = new Uri("https://localhost:7142");
+                        httpClient.BaseAddress = new Uri("https://localhost:7142/");
+
+                        // Prepare form data
+                        string userEmail = "ahmadAli@gmail.com"; 
+                        if (string.IsNullOrEmpty(userEmail))
+                        {
+                            return BadRequest("User email is required");
+                        }
 
                         var formContent = new MultipartFormDataContent();
                         formContent.Add(new StreamContent(pdfStream), "file", "Resume.pdf");
+                        formContent.Add(new StringContent(userEmail), "userEmail");
 
-                        try
+                        Console.WriteLine(formContent);
+                        var response = await httpClient.PostAsync("api/resume", formContent);
+                        Console.WriteLine(response);
+                        if (response.IsSuccessStatusCode)
                         {
-                            var response = await httpClient.PostAsync("api/resume", formContent);
-                            Console.WriteLine("3");
+                            var resultString = await response.Content.ReadAsStringAsync();
 
-                            if (response.IsSuccessStatusCode)
-                            {
-                                Console.WriteLine("4");
-                                var resultString = await response.Content.ReadAsStringAsync();
+                            var result = JsonConvert.DeserializeObject<ResumePdf>(resultString);
 
-                                var contentType = response.Content.Headers.ContentType?.MediaType;
+                            _logger.LogInformation("PDF generated and uploaded successfully.");
 
-                                if (contentType != null && contentType.Equals("application/json", StringComparison.OrdinalIgnoreCase))
-                                {
-                                    Console.WriteLine("5");
-                                    var result = JsonConvert.DeserializeObject<ResumePdf>(resultString);
-
-                                    _logger.LogInformation("PDF generated and uploaded successfully.");
-
-                                    return File(pdfBytes, "application/pdf", "Resume.pdf");
-                                }
-                                else
-                                {
-                                    _logger.LogError("Unexpected response content type.");
-                                    return BadRequest("Unexpected response content type");
-                                }
-                            }
-                            else
-                            {
-                                _logger.LogError($"Error uploading PDF to API. Status code: {response.StatusCode}");
-                                return StatusCode((int)response.StatusCode, "Error uploading PDF to API");
-                            }
+                            // Return the PDF file
+                            return File(pdfBytes, "application/pdf", "Resume.pdf");
                         }
-                        catch (HttpRequestException ex)
+                        else
                         {
-                            _logger.LogError($"HTTP request error: {ex.Message}");
-                            return BadRequest($"HTTP request error: {ex.Message}");
-                        }
-                        catch (JsonException ex)
-                        {
-                            _logger.LogError($"Error deserializing JSON response: {ex.Message}");
-                            return BadRequest("Error deserializing JSON response");
+                            _logger.LogError($"Error uploading PDF to API. Status code: {response.StatusCode}");
+                            return StatusCode((int)response.StatusCode, "Error uploading PDF to API");
                         }
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 _logger.LogError($"Error generating PDF: {ex.Message}");

@@ -1,25 +1,29 @@
-﻿<!DOCTYPE html>
+﻿@{
+	var jobId = ViewBag.JobId;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Apply for job</title>
-
+	<title>
+		Applying for Job
+	</title>
 	<!-- Include Bootstrap CSS -->
+	<link rel="stylesheet"
+		  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/jobApplication.css" />
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,400,300,500,600,700" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="~/css/bootstrap.css" />
 	<link rel="stylesheet" href="~/css/main.css" />
-	<link rel="stylesheet"
-		  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="~/css/jobApplication.css" />
 </head>
+
   <body>
 	@{
 		Layout = "_Navbar";
 	}
-	<br /><br />
 	<div class="container mt-5">
 	  <div class="row gx-5 gap-x-4 justify-content-center align-items-center">
 		<div class="col-12 col-md-12 col-lg-7 profile-completeness">
@@ -40,31 +44,33 @@
 		  <div class="progress-heading mb-3">
 			<h3>Add your contact information</h3>
 		  </div>
-
-		  <form id="step1">
-		  @*<form id="step1">*@
+				<form action="/jobApplication/SaveApplication" method="post" enctype="multipart/form-data">
+		  <div id="step1">
+						@*<form id="step1">*@
 			<div class="form-group">
 				<div class="form-outline mb-4">
+								@*@Console.WriteLine(jobId);*@
+								<input id="jobId" type="hidden" value="@jobId" name="JobId" />
 				  <input type="text" id="first_name" class="form-control custom-form-input"
-					placeholder="Enter first name" />
+					placeholder="Enter name" name="Applier" />
 				</div>
 			</div>
-			<div class="form-group">
+						@*<div class="form-group">
 				<div class="form-outline mb-4">
 				  <input type="text" id="last_name" class="form-control custom-form-input"
 					placeholder="Enter last name" />
 				</div>
-			</div>
+			</div>*@
 			<div class="form-group">
 				<div class="form-outline mb-4">
-				  <input type="email" id="email" class="form-control custom-form-input"
-					placeholder="Enter email address" />
+				<input type="email" id="email"  class="form-control custom-form-input"
+									   placeholder="Enter email address" name="UserEmail" />
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="form-outline mb-4">
 				  <input type="tel" id="phone" class="form-control custom-form-input"
-					placeholder="Enter phone number" />
+								   placeholder="Enter phone number" name="PhoneNumber" />
 				</div>
 			</div>
 			<!-- ... More contact information fields ... -->
@@ -73,21 +79,36 @@
 			  class="text-uppercase next-btn mx-auto d-block"
 			  >Next</a
 			>
-		  </form>
+		  </div>
 
-		  <!-- Profile Completeness Form - Step 2 (Hidden by default) -->
-			<form id="step2" style="display: none">
-			  <div class="form-group">
-				<label for="resume">Upload Resume</label>
-				<input type="file" class="form-control-file" id="resume" />
-			  </div>
-			  <a onclick="showStep(3)" class="text-uppercase next-btn mx-auto d-block">Next</a>
-			</form>
+					<div id="step2" style="display: none">
+						<div class="form-group">
+							<label for="resume">Upload Resume</label>
+							<input type="file" class="form-control-file" id="resume" name="resume" />
+						</div>
+						@if(Model != null)
+						{
+								<div class="form-group">
+								<label for="jobverseResume">Select from Jobverse</label>
+								<select class="form-control" id="resumeId" name="resumeId">
+									<option value="">Select Resume</option>
+									@for (int i = 0; i < Model.Count; i++)
+									{
+										var resume = Model[i];
+												<option value="@resume.ResumeId">Resume @(i + 1)</option>
+
+									}
+								</select>
+							</div>
+						}
+						<a onclick="showStep(3)" class="text-uppercase next-btn mx-auto d-block">Next</a>
+					</div>
+
 
 		  <!-- Profile Completeness Form - Step 3 (Hidden by default) -->
-@*		  <form id="step3" style="display: none">
+		  <div id="step3" style="display: none">
 			<div class="form-group">
-			  <label>Are you graduated?</label>
+			  <label>Have you graduated?</label>
 			  <div class="form-check">
 				<input
 				  type="radio"
@@ -137,24 +158,22 @@
 			  class="text-uppercase next-btn mx-auto d-block"
 			  >Next</a
 			>
-		  </form>*@
 
-		  <!-- Profile Completeness Form - Step 3 (Hidden by default) -->
-		  <form id="step3" style="display: none">
+		  </div>
+		  <!-- Profile Completeness Form - Step 4 (Hidden by default) -->
+		  <div id="step4" style="display: none">
 			<div class="form-group">
 				<div class="form-outline mb-4">
-				  <input type="text" id="experience" class="form-control custom-form-input"
-					placeholder="Enter years of experience" />
+								<input type="text" id="experience" name="Experience" class="form-control custom-form-input"
+					placeholder="Enter years of experience"  />
 				</div>
 			</div>
-			<a
-			  onclick="completeApplication()"
-			  class="text-uppercase next-btn mx-auto d-block"
-			  >Submit Application</a
-			>
-		  </form>
+						<button class="text-uppercase next-btn mx-auto d-block" type="submit">Submit Application</button>
+		  </div>
+
+				</form>
 		</div>
-		@*<div class="col-12 col-md-12 col-lg-5 d-flex justify-content-center">
+		<div class="col-12 col-md-12 col-lg-5 d-flex justify-content-center">
 		  <div class="bg-card">
 			<div class="d-flex align-items-center gap-x-2 company-card">
 			  <div class="company-info">
@@ -186,7 +205,7 @@
 			</p>
 		  </div>
 		</div>
-	  </div>*@
+	  </div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -210,7 +229,7 @@
 
 	  function showStep(step) {
 		// Hide all steps first
-		for (let i = 1; i <= 3; i++) {
+		for (let i = 1; i <= 4; i++) {
 		  document.getElementById("step" + i).style.display = "none";
 		}
 
@@ -221,9 +240,12 @@
 		  updateProgress(50);
 		  document.querySelector(".progress-heading h3").textContent =
 			"Upload your resume";
-		}
-		else if (step === 3) {
+		} else if (step === 3) {
 		  updateProgress(75);
+		  document.querySelector(".progress-heading h3").textContent =
+			"Answer questions";
+		} else if (step === 4) {
+		  updateProgress(90);
 		  document.querySelector(".progress-heading h3").textContent =
 			"Enter years of experience";
 		}
@@ -235,40 +257,6 @@
 		progressBar.textContent = completeness + "% Complete";
 	  }
 
-	  function completeApplication() {
-		// Get form data
-		const firstName = document.getElementById("first_name").value;
-		const lastName = document.getElementById("last_name").value;
-		const email = document.getElementById("email").value;
-		const phoneNumber = document.getElementById("phone").value;
-		const experience = document.getElementById("experience").value;
-
-		// JSON object
-		var username = getCookie("Username");
-		const formData = {
-		  JobId: @ViewBag.JobId,
-		  UserEmail: username,
-		  Applier: `${firstName} ${lastName}`,
-		  PhoneNumber: phoneNumber,
-		  Experience: experience,
-		  ResumeId: 0,
-		};
-
-		// Send form data to the controller
-		$.ajax({
-		  type: "POST",
-		  url: "/JobApplication/SaveApplication",
-		  data: JSON.stringify(formData),
-		  contentType: "application/json",
-		  success: function (data) {
-			alert("Application submitted successfully!");
-			window.location.href = 'https://localhost:7289/';
-		  },
-		  error: function (error) {
-			console.error("Error:", error);
-		  },
-		});
-	  }
 	</script>
   </body>
 </html>

@@ -50,7 +50,8 @@ namespace Jobverse.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         var apiResponse = await response.Content.ReadAsStringAsync();
-                        return Json(new { success = true, message = "Job Posted successfully" });
+						return RedirectToAction("JobsPosted", "Employer");
+						//return Json(new { success = true, message = "Job Posted successfully" });
                     }
                     else
                     {

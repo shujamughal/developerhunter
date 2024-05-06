@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Resume.RabbitMQ;
 using Resume.Repository;
 using Resume.Resume;
-
+using MediatR;
+using Resume.Queries;
+using Resume.Commands;
+using Microsoft.AspNetCore.Identity;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Resume.Controllers
@@ -14,67 +17,78 @@ namespace Resume.Controllers
     public class ResumeController : ControllerBase
     {
         private readonly IResumeIdProducer _resumeIdProducer;
-        private readonly IResumeRepository _resumeRepository;
-        public ResumeController(IResumeRepository resumeRepository, IResumeIdProducer resumeIdProducer)
+        //private readonly IResumeRepository _resumeRepository;
+        private readonly IMediator _mediator;
+        public ResumeController(IResumeIdProducer resumeIdProducer,IMediator mediator)
         {
-            _resumeRepository = resumeRepository;
+            //_resumeRepository = resumeRepository;
             _resumeIdProducer = resumeIdProducer;
+            _mediator = mediator;
         }
 
         // GET: api/<ResumeController>
         [HttpGet]
-        public  Task<IEnumerable<ResumePdf>> Get()
+        public async  Task<List<ResumePdf>> Get()
         {
-            var resumesList = _resumeRepository.getAllResumes();
-            return (resumesList); 
+            var resumesList = await _mediator.Send(new GetResumeListQuery());
+            return resumesList; 
         }
 
         // GET api/<ResumeController>/5
         [HttpGet("{id}")]
-        public  Task<ResumePdf?> Get(int id)
+        public async Task<ResumePdf?> Get(int resumeId)
         {
-            return _resumeRepository.getResumebyid(id);
+            return await _mediator.Send(new GetResumebyIdQuery() { id = resumeId});
         }
 
         // POST api/<ResumeController>
         [HttpPost]
-        public async Task<ActionResult<ResumePdf>> Post([FromForm(Name = "Pdf")] IFormFile file, [FromForm] int userId)
+        public async Task<ActionResult<ResumePdf>> Post([FromForm] IFormFile file, [FromForm] string userEmail)
         {
             if (file == null || file.Length == 0)
             {
                 return BadRequest("File is empty");
             }
 
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return BadRequest("User email is required");
+            }
             using (var ms = new MemoryStream())
             {
-                Console.WriteLine("1 r");
                 await file.CopyToAsync(ms);
-                Console.WriteLine("2 r");
-                var resume = new ResumePdf { UserId = userId, Pdf = ms.ToArray() };
-                Console.WriteLine("3 r");
-
-                var addedResume = await _resumeRepository.AddResume(resume);
-                Console.WriteLine("4 r");
-
-                _resumeIdProducer.SendResumeIdMessage(addedResume.ResumeId);
-                Console.WriteLine("5 r");
-
-                Console.WriteLine("Resume uploaded successfully");
-
+                var resume = new ResumePdf { userEmail = userEmail, Pdf = ms.ToArray() };
+                var addedResume = await _mediator.Send(new AddResumeCommand(resume.userEmail,resume.Pdf));
+                //Console.WriteLine(addedResume.);
                 return Ok(addedResume);
             }
         }
 
-        // PUT api/<ResumeController>/5
-        [HttpPut("{id}")]
+		//GET api/<ResumeController>
+		[HttpGet("resumes/{email}")]
+		public async Task<ActionResult<List<ResumePdf>>> GetResumes(string email)
+		{
+            Console.WriteLine("In Api");
+			List<ResumePdf> resumes = await _mediator.Send(new GetResumesbyEmailQuery() { userEmail= email});
+			if (resumes == null || resumes.Count == 0)
+			{
+                Console.WriteLine("Uuuuuuuuu");
+				return NotFound(); 
+			}
+
+			return resumes;
+		}
+		// PUT api/<ResumeController>/5
+		[HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/<ResumeController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<int> Delete(int id)
         {
+            return await _mediator.Send(new DeleteResumeCommand() { Id = id });
         }
     }
 }

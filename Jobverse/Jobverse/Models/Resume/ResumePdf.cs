@@ -5,8 +5,13 @@ using System.ComponentModel.DataAnnotations;
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int resumeId { get; set; }
+        public int ResumeId { get; set; }
+
         [Required]
-        public byte[] Pdf { get; set; }
+        public string userEmail { get; set; }
+
+        [Required]
+        public byte[] Pdf { get; set; 
     }
+}
 

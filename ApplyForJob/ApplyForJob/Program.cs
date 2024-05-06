@@ -24,7 +24,7 @@ builder.Services.AddMassTransit(config => {
             h.Password("guest");
         });
 
-        cfg.ReceiveEndpoint("SharedContent.Messages:JWTokenJobPosting", ep =>
+        cfg.ReceiveEndpoint("SharedContent.Messages:JWTokenApplyForJob", ep =>
         {
             ep.Consumer<JWTokenApplyForJobConsumer>();
         });

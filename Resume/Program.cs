@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Resume.RabbitMQ;
 using Resume.Repository;
 using MassTransit;
+using MediatR;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 // Add Entity Framework Core and SQL Server support
 builder.Services.AddDbContext<Resume.ResumeContext>(options =>
 {

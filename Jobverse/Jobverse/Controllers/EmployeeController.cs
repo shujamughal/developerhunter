@@ -41,8 +41,6 @@ namespace Jobverse.Controllers
                 }
                 if((int)result==200)
                 {
-                    Console.WriteLine(user.Username);
-                    Response.Cookies.Append("Username", user.Username);
                     ViewBag.ShowSignup = false;
                     return RedirectToAction("Index", "Home");
                 }
@@ -69,7 +67,6 @@ namespace Jobverse.Controllers
                 if ((int)result == 200)
                 {
                     Console.WriteLine("Signin success");
-                    Console.WriteLine(user.Username);
                     Response.Cookies.Append("Username", user.Username);
                     ViewBag.ShowSignup = false;
                     return RedirectToAction("Index", "Home");

@@ -3,6 +3,7 @@ using ApplyForJob.Repository;
 using Microsoft.AspNetCore.Mvc;
 using ApplyForJob.Utils;
 using System;
+using SharedContent.Messages;
 
 namespace ApplyForJob.Controllers
 {
@@ -54,7 +55,6 @@ namespace ApplyForJob.Controllers
                 }
 
                 var jobPostsByUsername = await _jobApplicationRepository.GetJobApplicationsByUsername(username);
-                Console.WriteLine("Returning user applied jobs");
                 return Ok(jobPostsByUsername);
             }
             catch (Exception ex)
@@ -70,11 +70,11 @@ namespace ApplyForJob.Controllers
             jobApplication.ResumeId = UserResumeId.ResumeId;
             // Extract the token from the request headers
             var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            Console.WriteLine("JobApplication Post Method: ");
+			Console.WriteLine(token);
+			Console.WriteLine(TokenManager.TokenString);
 
-            Console.WriteLine("Token from jobverse " + token);
-            Console.WriteLine("Token from auth " + TokenManager.TokenString);
-
-            if (token == TokenManager.TokenString)
+			if (token == TokenManager.TokenString)
             {
                 Console.WriteLine("Token matched to apply for job");
                 var createdJobApplication = await _jobApplicationRepository.AddJobApplication(jobApplication);

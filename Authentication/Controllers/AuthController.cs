@@ -48,8 +48,6 @@ namespace Authentication.Controllers
 
                     var jwTokenApplyForJob = new JWTokenApplyForJob();
                     jwTokenApplyForJob.TokenString = encryptedToken;
-                    Console.WriteLine("Encrypted token from auth to applyforjob: ");
-                    Console.WriteLine(encryptedToken);
                     await _publishEndpoint.Publish<JWTokenApplyForJob>(jwTokenApplyForJob);
 
                     var jwTokenResume = new JWTokenResume();
@@ -95,6 +93,7 @@ namespace Authentication.Controllers
 
                     var jwTokenApplyForJob = new JWTokenApplyForJob();
                     jwTokenApplyForJob.TokenString = encryptedToken;
+                    Console.WriteLine("authentication to ApplyforJob");
                     Console.WriteLine(jwTokenApplyForJob.TokenString);
                     await _publishEndpoint.Publish<JWTokenApplyForJob>(jwTokenApplyForJob);
 

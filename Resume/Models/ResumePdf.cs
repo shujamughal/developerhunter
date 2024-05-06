@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
         public int ResumeId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
+        public string userEmail { get; set; }
 
         [Required]
         public byte[] Pdf { get; set; }

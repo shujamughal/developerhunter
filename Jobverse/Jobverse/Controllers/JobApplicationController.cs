@@ -28,14 +28,11 @@ namespace Jobverse.Controllers
             _encryptionService = encryptionService;
             _publishEndpoint = publishEndpoint;
         }
-        public async Task<IActionResult> JobApplication(int jobId)
+        public IActionResult JobApplication(int jobId)
         {
             // Check if the "username" cookie exists
             if (Request.Cookies["Username"] != null)
             {
-                Console.WriteLine("cookie exists");
-                Console.WriteLine(Request.Cookies["Username"]);
-
                 ViewBag.JobId = jobId;
                 return View();
             }
@@ -44,52 +41,54 @@ namespace Jobverse.Controllers
                 return RedirectToAction("SignupEmployee", "Employee");
             }
         }
-
+        private async Task<List<ResumePdf>> getResumesEmailAsync(string email)
+        {
+            var response = await _httpClient.GetAsync($"https://localhost:7142/api/resume/resumes/{email}");
+            List<ResumePdf> resumes = new List<ResumePdf>();
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                resumes = JsonConvert.DeserializeObject<List<ResumePdf>>(content);
+                return resumes;
+            }
+            else
+            {
+                return resumes;
+            }
+        }
 
         [HttpPost]
-        public async Task<IActionResult> SaveApplication([FromBody] JobApplication jobApplication)
+        public async Task<IActionResult> SaveApplication(int JobId, string Applier, string UserEmail, string PhoneNumber, IFormFile resume, int Experience, int resumeId = 0)
         {
             try
             {
-                var userResumeId = new ResumeId();
-                userResumeId.UserResumeId = 50;
-                await _publishEndpoint.Publish<ResumeId>(userResumeId);
-
-                string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
-
-                jobApplication.UserEmail = Request.Cookies["Username"];
-                string apiEndpoint = "api/JobApplication";
-
-                var jsonContent = new StringContent(JsonConvert.SerializeObject(jobApplication), Encoding.UTF8, "application/json");
-
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
-
-                var response = await _httpClient.PostAsync(apiEndpoint, jsonContent);
-
-                if (response.IsSuccessStatusCode)
+                if (resume != null)
                 {
-                    var apiResponse = await response.Content.ReadAsStringAsync();
+                    var addedResumeResponse = await AddResumeAsync(UserEmail, resume, "https://localhost:7142/");
+                    if (!addedResumeResponse.IsSuccessStatusCode)
+                    {
+                        return Json(new { success = false, message = "Error adding resume" });
+                    }
+                    var addedResume = JsonConvert.DeserializeObject<ResumePdf>(await addedResumeResponse.Content.ReadAsStringAsync());
 
-                    return Json(new { success = true, message = "Application saved successfully" });
+					var resumeIdAsync = new ResumeId();
+                    resumeIdAsync.UserResumeId = addedResume.ResumeId;
+					await _publishEndpoint.Publish<ResumeId>(resumeIdAsync);
                 }
-                else
+
+                var saveApplicationResponse = await SaveJobApplicationAsync(JobId, Applier, UserEmail, PhoneNumber, resumeId, Experience, "https://localhost:7025/");
+
+                if (!saveApplicationResponse.IsSuccessStatusCode)
                 {
-                    return Json(new { success = false, message = "Error in API request" });
+                    return Json(new { success = false, message = "Error saving job application" });
                 }
-            }
 
-            catch (HttpRequestException ex)
+				return RedirectToAction("Index", "Home");
+			}
+            catch (Exception ex)
             {
-                Console.WriteLine("HTTP request error: " + ex.Message);
-
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine("Inner exception: " + ex.InnerException.Message);
-                }
-
-                return Json(new { success = false, message = "Error in HTTP request" });
+                return Json(new { success = false, message = "Error: " + ex.Message });
             }
-
         }
 
         [HttpGet]
@@ -100,8 +99,13 @@ namespace Jobverse.Controllers
                 try
                 {
                     string username = Request.Cookies["Username"];
+                    Console.WriteLine("username in MyJobs Action :");
+                    Console.WriteLine(username);
 
                     string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
+
+                    Console.WriteLine("Encrypted Token in Jobverse Save Application: ");
+                    Console.WriteLine(encryptedToken);
 
                     string apiEndpoint = $"https://localhost:7025/api/JobApplication/MyJob?username={username}";
 
@@ -148,6 +152,53 @@ namespace Jobverse.Controllers
                 return RedirectToAction("SignupEmployee", "Employee");
             }
             return View();
+        }
+
+        private async Task<HttpResponseMessage> AddResumeAsync(string userEmail, IFormFile resume, string baseUrl)
+        {
+
+            using (var ms = new MemoryStream())
+            {
+
+                await resume.CopyToAsync(ms);
+
+                var resumeContent = new ByteArrayContent(ms.ToArray());
+                resumeContent.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
+                var formData = new MultipartFormDataContent();
+                Console.WriteLine(resumeContent);
+                formData.Add(resumeContent, "file", resume.FileName);
+                formData.Add(new StringContent(userEmail), "userEmail");
+                Console.WriteLine("Form Data: ", formData);
+
+                return await _httpClient.PostAsync(baseUrl + "api/resume", formData);
+            }
+        }
+
+        // Method to save job application
+        private async Task<HttpResponseMessage> SaveJobApplicationAsync(int jobId, string applier, string userEmail, string phoneNumber, int addedResume, int experience, string baseUrl)
+        {
+            var jobApplication = new JobApplication
+            {
+                Applier = applier,
+                UserEmail = userEmail,
+                JobId = jobId,
+                PhoneNumber = phoneNumber,
+                ResumeId = addedResume,
+                Experience = experience
+            };
+            string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
+
+            Console.WriteLine("Encrypted Token from Jobverse while saving: ");
+            Console.WriteLine(encryptedToken);
+
+            jobApplication.UserEmail = Request.Cookies["Username"];
+            string apiEndpoint = "api/JobApplication";
+
+            var jsonContent = new StringContent(JsonConvert.SerializeObject(jobApplication), Encoding.UTF8, "application/json");
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
+
+            return await _httpClient.PostAsync(apiEndpoint, jsonContent);
         }
 
         public IActionResult Success()
