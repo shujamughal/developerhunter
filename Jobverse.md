@@ -170,7 +170,8 @@ Debugging and troubleshooting issues in a monolithic architecture can be simpler
 ### Development Productivity: 
 With a monolithic architecture, developers can work on different parts of the application without needing to worry about communication protocols or API contracts between services. This can lead to faster development cycles and quicker time-to-market for new features.
 
-### Simple Deployment: Deploying a monolithic application typically involves deploying a single artifact, making the deployment process simpler compared to distributed architectures where multiple services need to be deployed and coordinated.
+### Simple Deployment: 
+Deploying a monolithic application typically involves deploying a single artifact, making the deployment process simpler compared to distributed architectures where multiple services need to be deployed and coordinated.
 
 ## Cons:
 ### Scalability:
@@ -718,6 +719,16 @@ Entity Framework Core integrates well with ASP.NET Core, making it easy to build
 Entity Framework Core, especially the Code-First approach, has a large and active community with extensive documentation, tutorials, and resources available online. This can be beneficial for learning, troubleshooting, and getting assistance when working on your project.
 
 By leveraging the Code-First approach in our project, we can efficiently design, develop, and maintain our application's data model while benefiting from the flexibility, control, and integration capabilities provided by Entity Framework Core.
+
+# Introduction to CQRS Pattern
+CQRS stands for Command and Query Responsibility Segregation.This pattern is a design principle that emphasizes the segregation of concerns between read and write operations within an application.It is used to separate read(queries) and write(commands) operations. Unlike the traditional CRUD (Create, Read, Update, Delete) approach, where data modification and retrieval are often handled through the same interfaces and mechanisms, CQRS advocates for a clear separation of responsibilities.In this pattern, queries perform read operation, and command perform writes operation like create, update, delete  and return data
+## Context and problem.
+In our applications, we mostly use a single data model to read and write data, which will work fine and perform CRUD operations easily. But, when the application becomes vast in that case, our queries return different types of data as an object so that it becomes hard to manage with different DTO objects. Also, the same model is used to perform a write operation. As a result, the model becomes complex. Moreover, when we use the same model for both reads and write operations the security is also hard to manage when the application is large and the entity might expose data in the wrong context due to the workload on the same model.CQRS helps to decouple operations and make the application more scalable and flexible on large scale.
+There is often a mismatch between the read and write representations of the data, such as additional columns or properties that must be updated correctly even though they aren't required as part of an operation.Data contention can occur when operations are performed in parallel on the same set of data.Managing security and permissions can become complex, because each entity is subject to both read and write operations, which might expose data in the wrong context.
+
+# MediatR Pattern
+In the context of CQRS (Command Query Responsibility Segregation), MediatR is a popular library in the .NET ecosystem that helps facilitate the implementation of the pattern.MediatR pattern helps to reduce direct dependency between multiple objects and make them collaborative through MediatR.In .NET Core MediatR provides classes that help to communicate with multiple objects efficiently in a loosely coupled manner.
+
 
 
 
