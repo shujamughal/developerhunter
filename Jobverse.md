@@ -193,6 +193,8 @@ In large development teams, working on a monolithic codebase can lead to coordin
 
 Microservice architecture is a modern approach to software development that emphasizes building small, independent, and loosely coupled services, each responsible for performing a specific business function. Unlike traditional monolithic architectures where all functionality is tightly integrated into a single codebase, microservices break down applications into smaller, more manageable components.In a microservice architecture, each service is developed, deployed, and maintained independently, allowing teams to work on different services concurrently without interfering with each other. This decoupling of services enables greater agility, scalability, and resilience, as well as easier maintenance and updates.
 
+![unnamed](https://github.com/shujamughal/developerhunter/assets/147513934/2da30ce5-82c4-449a-8d52-b1f3807b3348)
+
 # Synchronous Communication
 Synchronous communication involves direct request-response interactions between microservices. When a service sends a request to another service, it blocks and waits for a response before proceeding. This communication pattern is similar to traditional client-server interactions.
 
@@ -728,6 +730,434 @@ There is often a mismatch between the read and write representations of the data
 
 # MediatR Pattern
 In the context of CQRS (Command Query Responsibility Segregation), MediatR is a popular library in the .NET ecosystem that helps facilitate the implementation of the pattern.MediatR pattern helps to reduce direct dependency between multiple objects and make them collaborative through MediatR.In .NET Core MediatR provides classes that help to communicate with multiple objects efficiently in a loosely coupled manner.
+
+![unnamed (1)](https://github.com/shujamughal/developerhunter/assets/147513934/feb48cba-e349-4ffe-80a6-5e284debc11e)
+
+MediatR acts as a mediator between command/query senders and their respective handlers. It abstracts the details of message dispatching, allowing components to communicate without direct coupling.
+Commands, which represent operations that modify data, are typically handled by command handlers. MediatR provides an easy way to define and register command handlers, allowing commands to be dispatched to the appropriate handler for processing.Similarly, queries, which represent operations that retrieve data, are handled by query handlers. MediatR facilitates the definition and registration of query handlers, enabling queries to be dispatched and processed accordingly.
+
+## Implementation
+
+### Project Structure:
+
+![unnamed (2)](https://github.com/shujamughal/developerhunter/assets/147513934/31670e41-f36c-4983-92c3-77a29ba4d690)
+
+### Packages:
+
+Install following required packages
+![unnamed (3)](https://github.com/shujamughal/developerhunter/assets/147513934/24ffe2a7-0a0d-407c-95f1-eb6f24b42646)
+
+### Create Repository:
+
+![unnamed (4)](https://github.com/shujamughal/developerhunter/assets/147513934/03e8345a-5a68-40b1-83da-4edef0220158)
+
+Definition of all methods define in repository interface:
+```
+ public class ResumeRepository: IResumeRepository
+ {
+     private readonly ResumeContext _context;
+     public ResumeRepository(ResumeContext context)
+     {
+         _context = context;
+     }   
+
+     public async Task<ResumePdf> AddResume(ResumePdf resumePdf)
+     {
+        _context.resumes.Add(resumePdf);
+Console.WriteLine("I am in repositor of resume");
+         await _context.SaveChangesAsync();
+         return resumePdf;
+     }
+     public async Task<List<ResumePdf>> getAllResumes()
+     {
+         return await _context.resumes.ToListAsync();
+     }
+		public async Task<ResumePdf?> getResumebyid(int id)
+		{
+try
+{
+	var resume = await _context.resumes.FindAsync(id);
+	Console.WriteLine(resume.ResumeId);
+	return resume;
+}
+catch (Exception ex)
+{
+	Console.WriteLine(ex.Message);
+	Console.WriteLine("Here it is exception");
+	return null; 
+}
+		}
+
+		public async Task<List<ResumePdf>> getResumesbyEmail(string email)
+		{
+// Query resumes where the email matches the provided email
+return await _context.resumes.Where(r => r.userEmail == email).ToListAsync();
+		}
+		public async Task<int> DeleteResume(int resumeId)
+		{
+var resume = await _context.resumes.FindAsync(resumeId);
+if (resume == null)
+{
+	return 0;
+}
+_context.resumes.Remove(resume);
+return await _context.SaveChangesAsync();
+
+		}
+	}
+
+```
+
+### Add Queries:
+
+Add Query in Queries Folder
+-> GetResumeListQuery
+
+![unnamed (5)](https://github.com/shujamughal/developerhunter/assets/147513934/14945b55-7f0a-4fb8-8386-9fdf348a43c2)
+
+### Add Commands:
+Add command in Commands Folder
+-> AddResumeCommand
+![unnamed (6)](https://github.com/shujamughal/developerhunter/assets/147513934/d8d90c1f-a3c0-4938-b465-c49e43c27f37)
+
+### Add Handlers
+Now Add query and command handlers in Handler folder
+-> GetResumeListHandler
+![unnamed (7)](https://github.com/shujamughal/developerhunter/assets/147513934/a0e228e3-713b-4790-8c6e-8ea5c801087b)
+
+### Add Configurations:
+```
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+```
+Add above line in program.cs
+
+### Controller:
+Make object of mediator and send queries or commands according to requirements
+```
+using MassTransit;
+using MassTransit.Transports;
+using Microsoft.AspNetCore.Mvc;
+using Resume.RabbitMQ;
+using Resume.Repository;
+using Resume.Resume;
+using MediatR;
+using Resume.Queries;
+using Resume.Commands;
+using Microsoft.AspNetCore.Identity;
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace Resume.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ResumeController : ControllerBase
+    {
+        private readonly IResumeIdProducer _resumeIdProducer;
+        private readonly IMediator _mediator;
+        public ResumeController(IResumeIdProducer resumeIdProducer,IMediator mediator)
+        {
+            //_resumeRepository = resumeRepository;
+            _resumeIdProducer = resumeIdProducer;
+            _mediator = mediator;
+        }
+
+        // GET: api/<ResumeController>
+        [HttpGet]
+        public async  Task<List<ResumePdf>> Get()
+        {
+            var resumesList = await _mediator.Send(new GetResumeListQuery());
+            return resumesList; 
+        }
+
+        // GET api/<ResumeController>/5
+        [HttpGet("{id}")]
+        public async Task<ResumePdf?> Get(int resumeId)
+        {
+            return await _mediator.Send(new GetResumebyIdQuery() { id = resumeId});
+        }
+
+        // POST api/<ResumeController>
+        [HttpPost]
+        public async Task<ActionResult<ResumePdf>> Post([FromForm] IFormFile file, [FromForm] string userEmail)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("File is empty");
+            }
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return BadRequest("User email is required");
+            }
+            using (var ms = new MemoryStream())
+            {
+                await file.CopyToAsync(ms);
+                var resume = new ResumePdf { userEmail = userEmail, Pdf = ms.ToArray() };
+                var addedResume = await _mediator.Send(new AddResumeCommand(resume.userEmail,resume.Pdf));
+                //Console.WriteLine(addedResume.);
+                return Ok(addedResume);
+            }
+        }
+
+		//GET api/<ResumeController>
+		[HttpGet("resumes/{email}")]
+		public async Task<ActionResult<List<ResumePdf>>> GetResumes(string email)
+		{
+            Console.WriteLine("In Api");
+			List<ResumePdf> resumes = await _mediator.Send(new GetResumesbyEmailQuery() { userEmail= email});
+			if (resumes == null || resumes.Count == 0)
+			{
+                Console.WriteLine("Uuuuuuuuu");
+				return NotFound(); 
+			}
+
+			return resumes;
+		}
+		// PUT api/<ResumeController>/5
+		[HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/<ResumeController>/5
+        [HttpDelete("{id}")]
+        public async Task<int> Delete(int id)
+        {
+            return await _mediator.Send(new DeleteResumeCommand() { Id = id });
+        }
+    }
+}
+
+```
+
+
+
+
+# Authentication and Authorization Using Identity and Jason Web Tokens (JWT)
+## Authentication and Authorization Implementation
+Authentication and authorization are fundamental aspects of any web application, ensuring that users can securely access resources based on their identity and permissions. In our project, we have implemented authentication and authorization using ASP.NET Identity and JSON Web Tokens (JWT), providing a robust and secure mechanism for user management and access control.
+## Authentication Implementation
+Authentication is the process of verifying the identity of a user attempting to access the application. In our system, authentication involves the following steps:
+
+### User Registration: 
+Users can register for an account by providing necessary details such as email and password. Upon successful registration, user information is securely stored in the database using the tables provided by ASP.NET Identity.
+
+### User Login:
+Registered users can log in to the system by providing their credentials (email/username and password). The login process involves verifying the provided credentials against the user data stored in the AspNetUsers table.
+
+### JWT Token Generation:
+Upon successful authentication, a JSON Web Token (JWT) is generated and returned to the client. The JWT contains claims about the user's identity and any associated roles, enabling stateless authentication for subsequent requests.
+
+### Refresh Token: 
+In addition to the JWT, a refresh token is issued to the client to facilitate secure token refreshment without requiring the user to re-enter their credentials. The refresh token is stored securely in the database, in a separate table named  RefreshTokens.
+
+## Authorization Implementation
+Authorization determines the level of access granted to authenticated users based on their assigned roles and permissions. In our system, authorization is role-based and involves the following:
+
+### Assigning Roles at Login:
+Upon successful authentication, users are assigned roles based on their identity. In our system, we have two primary roles: Company and Employee. These roles dictate the access privileges and functionalities available to users within the application.
+
+### Role-Based Access Control (RBAC):
+Each role is associated with specific permissions and access rights. For example, a company role may have administrative privileges to manage job postings and user accounts, while an employee role may have access to search and apply for jobs. RBAC ensures that users can only access resources and perform actions that are appropriate for their role.
+
+## Authentication Implementation
+Authentication is the process of verifying the identity of a user attempting to access the application. In our system, authentication involves the following steps:
+
+## User Registration: 
+Users can register for an account by providing necessary details such as email and password. Upon successful registration, user information is securely stored in the database using the tables provided by ASP.NET Identity. Here's an example of how user registration is implemented in our system:
+```
+[HttpPost("Register")]
+public async Task<IActionResult> RegisterUser(User user)
+{
+	if (ModelState.IsValid)
+	{
+    	var result = await _authService.RegisterUser(user);
+    	if (result.Succeeded)
+    	{
+        	return Ok("Registration successful");
+    	}
+    	else
+    	{
+        	var errors = result.Errors.Select(e => e.Description).ToList();
+        	return BadRequest(errors);
+    	}
+	}
+ 
+	return BadRequest("Somthing went wrong!");
+       	
+}
+```
+Services are created to help the controller functions, and controller contains the object of service class. In service class, register is further implemented as:
+```
+public async Task<IdentityResult> RegisterUser(User user)
+{
+    var identityUser = new IdentityUser
+    {
+        UserName = user.Username,
+        Email = user.Username
+    };
+    var result = await _userManager.CreateAsync(identityUser, user.Password);
+    return result;
+}
+ ```
+
+## User Login: 
+Registered users can log in to the system by providing their credentials (email/username and password). The login process involves verifying the provided credentials against the user data stored in the AspNetUsers table. Here's an example of how user login is implemented in our system:
+```
+[HttpPost("LoginEmployee")]
+public async Task<IActionResult> Login(User user)
+{
+    if(ModelState.IsValid)
+	{
+    	var result = await _authService.Login(user);
+    	if (result == true)
+    	{
+ 
+        	var tokenString = _authService.generateTokenStringEmployee(user.Username);
+        	var refreshString = GenerateRefreshToken();
+        	var res = await _authService.InsertRefreshToken(user, refreshString);
+        	if (res == true)
+        	{
+            	var loginResponse = new LoginResponse { JwtToken = tokenString, RefreshToken = refreshString };
+                return Ok(loginResponse);
+        	}
+        	else
+        	{
+                return BadRequest("Error while generating refresh token!!");
+        	}
+    	}
+    	return BadRequest("Incorrect password or username");
+	}
+ 
+	return BadRequest("Something went wrong");
+}
+```
+
+Also, in service class:
+```
+public async Task<bool> Login(User user)
+ {
+     var identityUser = await _userManager.FindByEmailAsync(user.Username);
+     if(identityUser == null)
+     {
+         return false;
+     }
+     var result= await _userManager.CheckPasswordAsync(identityUser, user.Password);
+    
+     return result;
+ }
+```
+## JWT Token Generation:
+Upon successful authentication, a JSON Web Token (JWT) is generated and returned to the client. The JWT contains claims about the user's identity and any associated roles, enabling stateless authentication for subsequent requests. Here's an example of how JWT token generation is implemented in our system:
+ ```
+var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("Jwt:Key").Value));
+ 
+SigningCredentials singingCred = new SigningCredentials(securityKey,
+    SecurityAlgorithms.HmacSha512Signature);
+        	
+var securityToken = new JwtSecurityToken(
+ claims: claims,
+ expires: DateTime.UtcNow.Add(TimeSpan.Parse(_config.GetSection("Jwt:ExpireTimeFrame").Value)),
+ issuer:_config.GetSection("Jwt:Issuer").Value,
+ audience:_config.GetSection("Jwt:Audience").Value,
+ signingCredentials:singingCred);
+ 
+string tokenString = new JwtSecurityTokenHandler().WriteToken(securityToken);
+```
+ 
+## Refresh Token:
+In addition to the JWT, a refresh token is issued to the client to facilitate secure token refreshment without requiring the user to re-enter their credentials. The refresh token is stored securely in the database, typically in a separate table such as RefreshTokens.
+```
+public class RefreshToken
+{
+	[Key] 	
+	public string username { get; set; }
+	public required string Token { get; set; }
+ 
+	public DateTime Expired { get; set; }
+    	
+}
+
+
+```
+
+## Authorization Implementation
+Authorization determines the level of access granted to authenticated users based on their assigned roles and permissions. In our system, authorization is role-based and involves the following:
+
+### Assigning Roles at Login: 
+Upon successful authentication, users are assigned roles based on their identity. In our system, we have two primary roles: Company and Employee. These roles dictate the access privileges and functionalities available to users within the application. Here's an example of how roles are assigned at login:
+```
+//Assigning Employee role
+var claims = new List<Claim>
+{
+	new Claim(ClaimTypes.Email,username),
+	new Claim(ClaimTypes.Role, "Employee"),
+};
+ 
+//Generates JWT token
+string tokenString = new JwtSecurityTokenHandler().WriteToken(securityToken);
+ 
+return tokenString;
+ ```
+
+##  Security Measures
+Ensuring the security of the authentication and authorization processes is paramount to protect user data and prevent unauthorized access. In our system, several security measures have been implemented to safeguard these processes:
+Protection Against SQL Injection: All user inputs are validated and sanitized to prevent SQL injection attacks, which could compromise the integrity of the database. Parameterized queries or ORM frameworks like Entity Framework are used to interact with the database securely.
+```
+// UserRepository.cs
+ 
+public async Task<ApplicationUser> GetUserByEmail(string email)
+{
+	// Using parameterized queries to prevent SQL injection
+	return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+}
+```
+### Strong Password Policies: 
+Users are required to create strong passwords containing a combination of alphanumeric characters, symbols, and minimum length requirements to enhance password security and prevent brute force attacks.
+```
+// Password policy configuration
+services.Configure<IdentityOptions>(options =>
+{
+	options.Password.RequiredLength = 8;
+	options.Password.RequireDigit = true;
+	options.Password.RequireNonAlphanumeric = true;
+	options.Password.RequireUppercase = true;
+	options.Password.RequireLowercase = true;
+});
+```
+
+## Challenges Faced
+During the implementation of authentication and authorization in our project, several challenges were encountered. These challenges required careful consideration and implementation strategies to ensure the security and functionality of the system. Some of the key challenges faced include:
+
+### Integration Complexity: 
+Integrating ASP.NET Identity and JWT authentication with our existing application architecture posed challenges due to the complexity of the implementation and the need to ensure compatibility with other system components.
+## Role-Based Access Control Design:
+Designing an effective role-based access control (RBAC) system required careful planning to define roles, permissions, and access rights accurately. Ensuring that roles are assigned correctly and access controls are enforced across the application was a significant challenge.
+### Token Management:
+Managing JWT tokens and refresh tokens securely while maintaining their validity and preventing token-related security vulnerabilities such as token leakage or misuse required robust token management mechanisms.
+### Security Vulnerabilities:
+Identifying and mitigating security vulnerabilities such as SQL injection attacks, password protection required thorough testing and validation of the authentication and authorization processes.
+### User Experience:
+Balancing security requirements with a seamless user experience was a challenge, particularly in terms of implementing strong password policies without compromising usability and accessibility for users.
+### Scalability:
+Ensuring that the authentication and authorization mechanisms are scalable to accommodate future growth and increasing user traffic presented challenges in terms of performance optimization and resource management.
+## Future Improvements
+While the current implementation of authentication and authorization in our ASP.NET project meets the immediate requirements, there are several areas for potential future improvements and enhancements. These improvements aim to further enhance the security, functionality, and user experience of the authentication and authorization processes. Some potential future improvements include:
+### Enhanced Role-Based Access Control (RBAC): 
+Implementing more granular access control policies based on roles and permissions to provide finer-grained control over user access to resources and functionalities within the application.
+### Two-Factor Authentication (2FA):
+Introducing two-factor authentication methods such as SMS-based verification or authenticator apps to add an extra layer of security to user accounts and mitigate the risk of unauthorized access.
+### Single Sign-On (SSO): 
+Implementing single sign-on functionality to allow users to authenticate once and access multiple related applications or services without needing to re-enter their credentials, enhancing user convenience and streamlining the authentication process.
+### Performance Optimization: 
+Optimizing the performance of authentication and authorization processes to minimize latency and improve response times, particularly as user traffic and application usage increase over time.
+ 
+ 
+
+
+
+
+
 
 
 
