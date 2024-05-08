@@ -12,6 +12,6 @@ On the frontend, we used ASP.NET MVC framework to develop the user interface and
 
 Together, the microservice architecture for backend APIs and the ASP.NET MVC framework for frontend development form a cohesive and scalable system architecture for Jobverse. This architecture allows us to deliver a high-performance, reliable, and user-friendly platform for job seekers and employers.
 
-![Screenshot (127)](https://github.com/shujamughal/developerhunter/assets/147513934/38b3f7c3-18ee-44c1-8859-e5a3ddc5bcac)
+
 
 
