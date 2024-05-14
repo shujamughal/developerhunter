@@ -43,14 +43,16 @@ namespace jobPosting.Controllers
         public async Task<ActionResult<JobPosting>> Post([FromBody] JobPosting jobPosting)
         {
             var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            if(token == TokenManager.TokenString)
-            {
-                Console.WriteLine("Token matched to post job");
-                var createdJobPosting = await this._jobPostingRepository.AddJobPosts(jobPosting);
-                return CreatedAtAction(nameof(Get), new { id = createdJobPosting.Id }, createdJobPosting);
-            }
+            var createdJobPosting = await this._jobPostingRepository.AddJobPosts(jobPosting);
+            return CreatedAtAction(nameof(Get), new { id = createdJobPosting.Id }, createdJobPosting);
+            //if (token == TokenManager.TokenString)
+            //{
+            //    Console.WriteLine("Token matched to post job");
+            //    var createdJobPosting = await this._jobPostingRepository.AddJobPosts(jobPosting);
+            //    return CreatedAtAction(nameof(Get), new { id = createdJobPosting.Id }, createdJobPosting);
+            //}
 
-            return Unauthorized(new { message = "Invalid token" });
+            //return Unauthorized(new { message = "Invalid token" });
         }
     }
 }

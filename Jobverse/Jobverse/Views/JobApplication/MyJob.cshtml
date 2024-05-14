@@ -38,11 +38,36 @@
                     {
                         @foreach (var job in Model)
                         {
-                            <div class="details">
-                                <div class="titles">
-                                            <a href="single.html"><h4>@job.JobTitle</h4></a>
-                                </div>
-                            </div>
+                                        <div class="single-post" data-category="@job.Type" data-location ="@job.Location">
+                                            <div class="details">
+                                                <div class="title d-flex flex-row justify-content-between">
+                                                    <div class="titles">
+                                                        <a href="single.html"><h4>@job.JobTitle</h4></a>
+                                                        <h6>@job.Location</h6>
+                                                    </div>
+                                                    <ul class="btns">
+                                                                                                <li><a href="@Url.Action("Withdraw", "jobApplication", new { jobId = job.Id })" class="link-danger text-decoration-none">Withdraw Application</a>
+                                                            </li>
+                                                    </ul>
+                                                </div>
+                                                <p>
+                                                    @job.JobDescription
+                                                </p>
+                                                <p class="address" id="jobId">
+                                                    @job.Id
+                                                </p>
+                                                <h5>Job Nature: @job.Type</h5>
+                                                <p class="address">
+                                                    <span class="lnr lnr-map"></span> @job.Location
+                                                </p>
+                                                <p class="address">
+                                                    <span class="lnr lnr-database"></span> @job.SalaryRange
+                                                    </p>
+                                                    <p class="address" id="jobId" style="display:None;">
+                                                        @job.Id
+                                                    </p>
+                                            </div>
+                                        </div>
                         }
                     }
                 </div>

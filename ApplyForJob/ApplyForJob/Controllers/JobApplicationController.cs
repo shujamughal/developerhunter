@@ -112,5 +112,21 @@ namespace ApplyForJob.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{id}/{email}")]
+        public async Task<IActionResult> Delete(int id, string email)
+        {
+            var jobApplications = await this._jobApplicationRepository.GetJobApplicationByJobId(id);
+            foreach(JobApplication application in jobApplications)
+            {
+                if(application.UserEmail == email)
+                {
+                    await this._jobApplicationRepository.DeleteJobApplication(application.Id);
+                    Console.WriteLine("Job Application Deleted");
+                    return NoContent();
+                }
+            }
+            return NoContent();
+        }
     }
 }

@@ -99,8 +99,6 @@ namespace Jobverse.Controllers
                 try
                 {
                     string username = Request.Cookies["Username"];
-                    Console.WriteLine("username in MyJobs Action :");
-                    Console.WriteLine(username);
 
                     string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
 
@@ -199,6 +197,26 @@ namespace Jobverse.Controllers
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
 
             return await _httpClient.PostAsync(apiEndpoint, jsonContent);
+        }
+
+        public async Task<IActionResult> Withdraw(int jobId)
+        {
+            Console.WriteLine("job id: ", jobId);
+            string username = Request.Cookies["Username"];
+
+            try
+            {
+                string endpoint = $"https://localhost:7025/api/JobApplication/{jobId}/{username}";
+
+                var response = await _httpClient.DeleteAsync(endpoint);
+
+                return RedirectToAction("MyJob", "Jobapplication");
+            }
+            catch (HttpRequestException ex)
+            {
+                return View("Error");
+            }
+    
         }
 
         public IActionResult Success()

@@ -32,11 +32,15 @@ namespace Jobverse.Controllers
         }
         public IActionResult LogoutEmployer()
         {
+            ViewBag.ShowSignup = true;
+            Response.Cookies.Delete("Username");
             Response.Cookies.Delete("Company");
             return RedirectToAction("Index", "Home");
         }
         public IActionResult SigninSuccess(Jobverse.Models.Employer employer)
         {
+            ViewBag.ShowSignup = true;
+            Response.Cookies.Delete("Username");
             Response.Cookies.Append("Company", employer.Company);
             return RedirectToAction("JobsPosted", "Employer");
         }

@@ -23,7 +23,7 @@
 </head>
 <body>
     @{
-        Layout = "_Navbar";
+        Layout = "_NavbarEmployer";
     }
     @Model JobApplication;
     <section class="post-area section-gap">
@@ -37,11 +37,26 @@
                     }
                     else
                     {
-                        @foreach (var jobApplication in Model)
+                        @foreach (var job in Model)
                         {
-                            <div class="details">
-                                <div class="titles">
-                                    <a href="single.html"><h4>@jobApplication.Applier</h4></a>
+                            <div class="single-post">
+                                <div class="details">
+                                    <div class="title d-flex flex-row justify-content-between">
+                                        <div class="titles">
+                                            <a href="single.html"><h4>@job.Applier</h4></a>
+                                            <h6>Experience: @job.Experience years</h6>
+                                        </div>
+                                        <ul class="btns">
+                                @*<li>
+                                <a href="#"><span class="fa fa-heart"></span></a>
+                                </li>*@
+                                                    @*<li><a href="@Url.Action("jobApplication", "jobApplication", new { jobId = job.Id })" class="link-danger text-decoration-none">Apply</a>
+                                                </li>*@
+                                        </ul>
+                                    </div>
+                                    <p>
+                                        @job.PhoneNumber
+                                    </p>
                                 </div>
                             </div>
                         }
