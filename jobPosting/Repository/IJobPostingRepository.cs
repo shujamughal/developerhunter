@@ -8,6 +8,7 @@ namespace jobPosting.Repository
         Task<JobPosting> AddJobPosts(JobPosting jobPosting);
         Task<JobPosting> GetJobPostById(int id);
         Task<IEnumerable<JobPosting>> GetJobPostsByCompany(string email);
-
+        Task<bool> DeleteJobPost(int id);
+        Task<bool> UpdateJobPost(JobPosting jobPosting);
     }
 }

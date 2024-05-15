@@ -1,0 +1,3 @@
+Fixes:
+- If already applied, disable apply button
+- Enable and disable job

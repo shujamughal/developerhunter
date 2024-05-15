@@ -51,7 +51,6 @@ namespace Jobverse.Controllers
                     {
                         var apiResponse = await response.Content.ReadAsStringAsync();
 						return RedirectToAction("JobsPosted", "Employer");
-						//return Json(new { success = true, message = "Job Posted successfully" });
                     }
                     else
                     {
@@ -73,6 +72,74 @@ namespace Jobverse.Controllers
             else
             {
                 return Json(new { success = false, message = "Model validation failed" });
+            }
+        }
+
+        public async Task<IActionResult> DeleteJob(int id)
+        {
+            try
+            {
+                Console.WriteLine("DeleteJob 1");
+                string tokenString = _encryptionService.EncryptToken(TokenManager.TokenString);
+                string apiEndpoint = $"api/JobPosting/{id}";
+
+                // Sending token in the headers
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+                Console.WriteLine("DeleteJob 2");
+
+                // Make a POST request to the API endpoint
+                var response = await _httpClient.DeleteAsync(apiEndpoint);
+                Console.WriteLine("DeleteJob 3");
+
+                return RedirectToAction("JobsPosted", "Employer");
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine("HTTP request error: " + ex.Message);
+
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner exception: " + ex.InnerException.Message);
+                }
+
+                return Json(new { success = false, message = "Error in HTTP request" });
+            }
+        }
+        public async Task<IActionResult> Disable(int jobId)
+        {
+            try
+            {
+                Console.WriteLine(jobId);
+
+                string endpoint = $"https://localhost:7199/api/JobPosting/{jobId}";
+                var response = await _httpClient.GetAsync(endpoint);
+                var content = await response.Content.ReadAsStringAsync();
+                var job = JsonConvert.DeserializeObject<JobPosting>(content);
+
+
+                if(job != null && job.Enabled == true)
+                {
+                    job.Enabled = false;
+                }
+                else
+                {
+                    job.Enabled = true;
+                }
+
+                var jsonContent = new StringContent(JsonConvert.SerializeObject(job), Encoding.UTF8, "application/json");
+
+                string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
+
+                endpoint = $"https://localhost:7199/api/JobPosting/{jobId}";
+
+                await _httpClient.PutAsync(endpoint, jsonContent);
+
+                return RedirectToAction("JobsPosted", "Employer");
+            }
+            catch (HttpRequestException ex)
+            {
+                return View("Error");
             }
         }
 
