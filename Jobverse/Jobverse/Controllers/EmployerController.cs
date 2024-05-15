@@ -92,5 +92,6 @@ namespace Jobverse.Controllers
                 return View("Error");
             }
         }
+
     }
 }

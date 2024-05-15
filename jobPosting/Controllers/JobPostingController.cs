@@ -29,6 +29,7 @@ namespace jobPosting.Controllers
         public async Task<ActionResult<JobPosting>> Get(int id)
         {
             var jobPost = await this._jobPostingRepository.GetJobPostById(id);
+            Console.WriteLine("Specific Job, public async Task<ActionResult<JobPosting>> Get(int id)");
             return Ok(jobPost);
         }
 
@@ -53,6 +54,44 @@ namespace jobPosting.Controllers
             //}
 
             //return Unauthorized(new { message = "Invalid token" });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromBody] JobPosting jobPosting)
+        {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            //if (token != TokenManager.TokenString)
+            //{
+            //    return Unauthorized(new { message = "Invalid token" });
+            //}
+
+            if (id != jobPosting.Id)
+            {
+                return BadRequest(new { message = "ID mismatch" });
+            }
+
+            var existingJobPosting = await _jobPostingRepository.GetJobPostById(id);
+            if (existingJobPosting == null)
+            {
+                return NotFound(new { message = "Job posting not found" });
+            }
+
+            await _jobPostingRepository.UpdateJobPost(jobPosting);
+            Console.WriteLine(".....");
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Console.WriteLine("id: ", id);
+            var deleted = await _jobPostingRepository.DeleteJobPost(id);
+            if (!deleted)
+            {
+                return NotFound(new { message = "Job posting not found" });
+            }
+            return NoContent();
         }
     }
 }

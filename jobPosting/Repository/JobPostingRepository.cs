@@ -35,5 +35,31 @@ namespace jobPosting.Repository
         {
             return await _context.JobPosts.Where(jp => jp.Company == company).ToListAsync();
         }
+        public async Task<bool> DeleteJobPost(int id)
+        {
+            Console.WriteLine("In repository");
+            var jobPosting = await _context.JobPosts.FindAsync(id);
+            if (jobPosting == null)
+            {
+                return false;
+            }
+
+            _context.JobPosts.Remove(jobPosting);
+            await _context.SaveChangesAsync();
+            Console.WriteLine("Job deleted");
+            return true;
+        }
+        public async Task<bool> UpdateJobPost(JobPosting jobPosting)
+        {
+            var existingJobPost = await _context.JobPosts.FindAsync(jobPosting.Id);
+            if (existingJobPost == null)
+            {
+                return false;
+            }
+
+            _context.Entry(existingJobPost).CurrentValues.SetValues(jobPosting);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

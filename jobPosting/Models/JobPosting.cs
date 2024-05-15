@@ -37,6 +37,9 @@ namespace jobPosting.Models
         public string Qualifications { get; set; }
 
         [Required]
+        public bool Enabled { get; set; }
+
+        [Required]
         public DateTime LastDate { get; set; }
 
         [Required]
@@ -54,6 +57,7 @@ namespace jobPosting.Models
             SalaryRange = string.Empty;
             Experience = string.Empty;
             Qualifications = string.Empty;
+            Enabled = true;
             LastDate = DateTime.Now;
             PostedDate = DateTime.Now;
         }

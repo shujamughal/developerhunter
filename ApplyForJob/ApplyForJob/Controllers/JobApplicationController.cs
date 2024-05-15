@@ -122,7 +122,6 @@ namespace ApplyForJob.Controllers
                 if(application.UserEmail == email)
                 {
                     await this._jobApplicationRepository.DeleteJobApplication(application.Id);
-                    Console.WriteLine("Job Application Deleted");
                     return NoContent();
                 }
             }

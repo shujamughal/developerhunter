@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Jobverse.Models;
 using jobPosting.Models;
@@ -45,8 +41,14 @@ public class HomeController : Controller
                 var jobPostings = JsonConvert.DeserializeObject<List<JobPosting>>(content);
                 if(jobPostings != null)
                 {
-                    jobPostings.Reverse(); // Latest job at the top
-                    return View(jobPostings);
+                    var filteredJobPostings = jobPostings
+                        .Where(job => job.Enabled == true).ToList();
+
+                    filteredJobPostings = jobPostings.Where(job => job.LastDate >= DateTime.Today).ToList();
+
+                    filteredJobPostings.Reverse(); // Latest job at the top
+
+                    return View(filteredJobPostings);
                 }
                 return View(null);
             }

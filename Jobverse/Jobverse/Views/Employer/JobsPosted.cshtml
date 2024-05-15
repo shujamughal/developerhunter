@@ -45,8 +45,17 @@
                                             <ul class="btns">
                                                             <li><a href="@Url.Action("JobApplications", "Employer", new { jobId = job.Id })" class="link-danger text-decoration-none">View Applications</a>
                                                     </li>
-                                                <li><a href="@Url.Action("Employer", "DeleteJobPost", new { jobId = job.Id })" class="link-danger text-decoration-none">Delete</a>
-                                                </li>
+                                                    @if(job.Enabled == true)
+                                                    {
+                                                                <li><a href="@Url.Action("Disable", "JobPosting", new { jobId = job.Id })" class="link-danger text-decoration-none">Disable</a>
+                                            </li>
+                                        }
+                                                    else
+                                                    {
+                                                                <li><a href="@Url.Action("Disable", "JobPosting", new { jobId = job.Id })" class="link-danger text-decoration-none">Enable</a>
+                                                            </li>
+                                                    }
+
                                         </ul>
                                     </div>
                                     <p>
