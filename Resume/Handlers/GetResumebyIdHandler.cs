@@ -13,7 +13,7 @@ namespace Resume.Handlers
         }
         public async Task<ResumePdf> Handle(GetResumebyIdQuery query, CancellationToken cancellationToken)
         {
-            return await _resumeRepository.getResumebyid(query.id);
+            return await _resumeRepository.getResumebyid(query.ResumeId);
         }
     }
 }

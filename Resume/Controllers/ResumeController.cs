@@ -38,7 +38,7 @@ namespace Resume.Controllers
         [HttpGet("{id}")]
         public async Task<ResumePdf?> Get(int resumeId)
         {
-            return await _mediator.Send(new GetResumebyIdQuery() { id = resumeId});
+            return await _mediator.Send(new GetResumebyIdQuery() { ResumeId = resumeId});
         }
 
         // POST api/<ResumeController>

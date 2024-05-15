@@ -10,3 +10,15 @@ D:\After-Mid\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\Shared
 D:\After-Mid\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\refint\SharedContent.dll
 D:\After-Mid\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.pdb
 D:\After-Mid\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\ref\SharedContent.dll
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\bin\Debug\net7.0\SharedContent.deps.json
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\bin\Debug\net7.0\SharedContent.dll
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\bin\Debug\net7.0\SharedContent.pdb
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.GeneratedMSBuildEditorConfig.editorconfig
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.AssemblyInfoInputs.cache
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.AssemblyInfo.cs
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.csproj.CoreCompileInputs.cache
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.sourcelink.json
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.dll
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\refint\SharedContent.dll
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\SharedContent.pdb
+D:\Universty\Semester 8\FYP\developerhunter\SharedContent\SharedContent\obj\Debug\net7.0\ref\SharedContent.dll

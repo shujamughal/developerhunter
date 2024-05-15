@@ -9,6 +9,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Connections;
 using jobPosting.Models;
 using ApplyForJob.Models;
+using SharedContent.Messages;
 
 namespace Jobverse.Controllers
 {
@@ -88,6 +89,31 @@ namespace Jobverse.Controllers
                 return View(null);
             }
             else
+            {
+                return View("Error");
+            }
+        }
+        public async Task<IActionResult> DownloadResume(int jobID,int ResumeId)
+        {
+            //Console.WriteLine(ResumeId);
+            try
+            {
+                string resumeEndpoint = $"https://localhost:7142/api/resume/{ResumeId}?resumeId={ResumeId}";
+                var resumeResponse = await _httpClient.GetAsync(resumeEndpoint);
+                if (resumeResponse.IsSuccessStatusCode)
+                {
+                        var resumeContent = await resumeResponse.Content.ReadAsStringAsync();
+                        var resume = JsonConvert.DeserializeObject<ResumePdf>(resumeContent);
+                        var resumeBytes = resume.Pdf;
+                        string contentType = "application/pdf";
+                        return File(resumeBytes, contentType, $"{resume.userEmail}.pdf");
+                }
+                else
+                {
+                    return View("Error"); 
+                }
+            }
+            catch (HttpRequestException ex)
             {
                 return View("Error");
             }

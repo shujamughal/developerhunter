@@ -50,8 +50,8 @@
                                 @*<li>
                                 <a href="#"><span class="fa fa-heart"></span></a>
                                 </li>*@
-                                                    @*<li><a href="@Url.Action("jobApplication", "jobApplication", new { jobId = job.Id })" class="link-danger text-decoration-none">Apply</a>
-                                                </li>*@
+                                                    <li><a href="@Url.Action("DownloadResume", "Employer", new {jobId = job.Id, ResumeId = job.ResumeId })" class="link-danger text-decoration-none">Download Resume</a>
+                                                </li>
                                         </ul>
                                     </div>
                                     <p>

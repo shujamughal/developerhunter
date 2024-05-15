@@ -3211,19 +3211,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\X1 Carbon\\.nuget\\packages\\": {}
+    "C:\\Users\\accer\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\After-Mid\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
+      "projectUniqueName": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
       "projectName": "ApplyForJob",
-      "projectPath": "D:\\After-Mid\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
-      "packagesPath": "C:\\Users\\X1 Carbon\\.nuget\\packages\\",
-      "outputPath": "D:\\After-Mid\\developerhunter\\ApplyForJob\\ApplyForJob\\obj\\",
+      "projectPath": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\ApplyForJob\\ApplyForJob\\ApplyForJob.csproj",
+      "packagesPath": "C:\\Users\\accer\\.nuget\\packages\\",
+      "outputPath": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\ApplyForJob\\ApplyForJob\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\X1 Carbon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\accer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3231,14 +3236,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\After-Mid\\developerhunter\\SharedContent\\SharedContent\\SharedContent.csproj": {
-              "projectPath": "D:\\After-Mid\\developerhunter\\SharedContent\\SharedContent\\SharedContent.csproj"
+            "D:\\Universty\\Semester 8\\FYP\\developerhunter\\SharedContent\\SharedContent\\SharedContent.csproj": {
+              "projectPath": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\SharedContent\\SharedContent\\SharedContent.csproj"
             }
           }
         }
@@ -3247,6 +3253,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3309,7 +3320,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
