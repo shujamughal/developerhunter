@@ -93,6 +93,7 @@ namespace Jobverse.Controllers
                 return View("Error");
             }
         }
+<<<<<<< HEAD
         public async Task<IActionResult> DownloadResume(int jobID,int ResumeId)
         {
             //Console.WriteLine(ResumeId);
@@ -118,5 +119,8 @@ namespace Jobverse.Controllers
                 return View("Error");
             }
         }
+=======
+
+>>>>>>> a111c87df3acd042df082f40b7d34e871a4897de
     }
 }

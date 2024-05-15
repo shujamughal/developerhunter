@@ -4,6 +4,7 @@ using Jobverse.Models;
 using Jobverse.Services;
 using Jobverse.Utils;
 using MassTransit;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SharedContent.Messages;
@@ -201,7 +202,6 @@ namespace Jobverse.Controllers
 
         public async Task<IActionResult> Withdraw(int jobId)
         {
-            Console.WriteLine("job id: ", jobId);
             string username = Request.Cookies["Username"];
 
             try
