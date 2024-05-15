@@ -23,24 +23,9 @@ public class CompanyRepository : ICompanyRepository
     {
         return await _context.Companies.FindAsync(email);
     }
-    public async Task<Company> AuthenticateAsync(string email, string password)
-    {
-        //Console.WriteLine(passwr);
-        var company = await _context.Companies.SingleOrDefaultAsync(x => x.Email == email);
-
-        // Check if the company exists and if the password matches
-        if (company != null && company.Password == password)
-        {
-            Console.WriteLine("Password matches");
-            return company; // Authentication successful
-        }
-
-        return null;  // Authentication successful
-    }
-
     public async Task<int> AddCompanyAsync(Company company)
     {
-        //Console.WriteLine("Yess here ");
+        Console.WriteLine("Yess here ");
         var companyExists = await _context.Companies.AnyAsync(x => x.Email == company.Email);
 
         if (companyExists)

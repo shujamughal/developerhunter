@@ -6,12 +6,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<CompanyContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CompanyProfile;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<CompanyContext>()
+.AddDefaultTokenProviders();
 builder.Services.AddDbContext<CompanyContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddTransient<CompanyContext, CompanyContext>();
 builder.Services.AddTransient<ICompanyRepository,CompanyRepository>();
 builder.Services.AddTransient<ICompanyProfileRepository, CompanyProfileRepository>();
 builder.Services.AddTransient<ICompanyDepartmentsRepository, CompanyDepartmentsRepository>();

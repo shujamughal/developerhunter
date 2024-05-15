@@ -30,7 +30,7 @@ namespace Jobverse
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
             // Add HttpClient to the services
             builder.Services.AddHttpClient();
             builder.Services.AddScoped<ErrorViewModel>();

@@ -1,8 +1,30 @@
 {
   "version": 2,
-  "dgSpecHash": "eb5qxHbOKO0jueNPMvfzkvuWVTbevikRWR1nry1MjdouxjHrIKEq0LZzmpit+1Lhh/TSmAbCou2jJcdtyayRRg==",
+  "dgSpecHash": "7yMfvzUW3naj8FfV2CVIes2U52N8+jz4tlgr3V8LYncDfQ/a0Im5mr2wploKVXlZ5v3mdHe3kAyNhRmIuYdlMA==",
   "success": true,
-  "projectFilePath": "D:\\After-Mid\\developerhunter\\SharedContent\\SharedContent\\SharedContent.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\6TH SEMESTER\\SCAD\\WebApplications\\2\\developerhunter\\SharedContent\\SharedContent\\SharedContent.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.0\\microsoft.aspnetcore.mvc.razor.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\6.0.0\\microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.2\\microsoft.codeanalysis.analyzers.3.3.2.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.codeanalysis.common\\4.0.0\\microsoft.codeanalysis.common.4.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.0.0\\microsoft.codeanalysis.csharp.4.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.0\\microsoft.codeanalysis.razor.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.0\\microsoft.extensions.dependencymodel.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.text.json\\6.0.0\\system.text.json.6.0.0.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.17\\microsoft.windowsdesktop.app.ref.7.0.17.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.17\\microsoft.netcore.app.ref.7.0.17.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.17\\microsoft.aspnetcore.app.ref.7.0.17.nupkg.sha512"
+  ],
   "logs": []
 }
