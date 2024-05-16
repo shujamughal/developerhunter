@@ -3,23 +3,28 @@
   "WorkspaceRootPath": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\controllers\\employercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\controllers\\employercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\views\\resume\\reviewresume.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\views\\resume\\reviewresume.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\controllers\\jobapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\controllers\\jobapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\models\\resume\\resumemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\models\\resume\\resumemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\views\\employer\\jobapplications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\views\\employer\\jobapplications.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\models\\resume\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\models\\resume\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\controllers\\resumecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ApplyForJobDB/True/SqlTable/dbo.JobApplications.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\models\\resume\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\models\\resume\\education.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\controllers\\jobapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|solutionrelative:jobverse\\controllers\\jobapplicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC80D6D1-9ABF-440F-B3CC-D757EDB5D216}|Jobverse\\Jobverse.csproj|d:\\universty\\semester 8\\fyp\\developerhunter\\jobverse\\jobverse\\models\\resume\\resumepdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -44,7 +49,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -54,54 +59,66 @@
               "RelativeDocumentMoniker": "Jobverse\\Controllers\\ResumeController.cs",
               "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Controllers\\ResumeController.cs",
               "RelativeToolTip": "Jobverse\\Controllers\\ResumeController.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAEIAAAA0AAAA",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEwAAABXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T18:12:23.603Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResumeModel.cs",
+              "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\ResumeModel.cs",
+              "RelativeDocumentMoniker": "Jobverse\\Models\\Resume\\ResumeModel.cs",
+              "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\ResumeModel.cs",
+              "RelativeToolTip": "Jobverse\\Models\\Resume\\ResumeModel.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAqwAcAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T21:11:16.579Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "JobApplications.cshtml",
-              "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Views\\Employer\\JobApplications.cshtml",
-              "RelativeDocumentMoniker": "Jobverse\\Views\\Employer\\JobApplications.cshtml",
-              "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Views\\Employer\\JobApplications.cshtml",
-              "RelativeToolTip": "Jobverse\\Views\\Employer\\JobApplications.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADQAAABoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-14T21:03:44.904Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EmployerController.cs",
-              "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Controllers\\EmployerController.cs",
-              "RelativeDocumentMoniker": "Jobverse\\Controllers\\EmployerController.cs",
-              "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Controllers\\EmployerController.cs",
-              "RelativeToolTip": "Jobverse\\Controllers\\EmployerController.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAUwGwAAABZAAAA",
+              "Title": "PdfService.cs",
+              "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\PdfService.cs",
+              "RelativeDocumentMoniker": "Jobverse\\Models\\Resume\\PdfService.cs",
+              "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\PdfService.cs",
+              "RelativeToolTip": "Jobverse\\Models\\Resume\\PdfService.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAwwCcAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T21:03:09.009Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T21:09:38.506Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "dbo.JobApplications [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/ApplyForJobDB/True/SqlTable/dbo.JobApplications.sql",
-              "ToolTip": "dbo.JobApplications [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-15T18:20:29.655Z",
-              "IsPinned": true,
+              "Title": "Education.cs",
+              "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\Education.cs",
+              "RelativeDocumentMoniker": "Jobverse\\Models\\Resume\\Education.cs",
+              "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\Education.cs",
+              "RelativeToolTip": "Jobverse\\Models\\Resume\\Education.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T21:15:53.653Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "reviewResume.cshtml",
+              "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Views\\Resume\\reviewResume.cshtml",
+              "RelativeDocumentMoniker": "Jobverse\\Views\\Resume\\reviewResume.cshtml",
+              "ToolTip": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Views\\Resume\\reviewResume.cshtml",
+              "RelativeToolTip": "Jobverse\\Views\\Resume\\reviewResume.cshtml",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAkwEMAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-15T22:01:51.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ResumePdf.cs",
               "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Models\\Resume\\ResumePdf.cs",
               "RelativeDocumentMoniker": "Jobverse\\Models\\Resume\\ResumePdf.cs",
@@ -109,12 +126,11 @@
               "RelativeToolTip": "Jobverse\\Models\\Resume\\ResumePdf.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T19:03:20.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T19:03:20.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "JobApplicationController.cs",
               "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Controllers\\JobApplicationController.cs",
               "RelativeDocumentMoniker": "Jobverse\\Controllers\\JobApplicationController.cs",
@@ -122,22 +138,20 @@
               "RelativeToolTip": "Jobverse\\Controllers\\JobApplicationController.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-14T21:02:42.73Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "dbo.JobPosts [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobsDB/True/SqlTable/dbo.JobPosts.sql",
-              "ToolTip": "dbo.JobPosts [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-05-15T18:23:21.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-14T21:02:42.73Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "dbo.JobPosts [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/JobsDB/True/SqlTable/dbo.JobPosts.sql",
+              "ToolTip": "dbo.JobPosts [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-05-15T18:23:21.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "MyJob.cshtml",
               "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Views\\JobApplication\\MyJob.cshtml",
               "RelativeDocumentMoniker": "Jobverse\\Views\\JobApplication\\MyJob.cshtml",
@@ -149,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "JobApplication.cshtml",
               "DocumentMoniker": "D:\\Universty\\Semester 8\\FYP\\developerhunter\\Jobverse\\Jobverse\\Views\\JobApplication\\JobApplication.cshtml",
               "RelativeDocumentMoniker": "Jobverse\\Views\\JobApplication\\JobApplication.cshtml",

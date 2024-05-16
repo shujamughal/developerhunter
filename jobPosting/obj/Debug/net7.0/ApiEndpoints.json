@@ -101,5 +101,42 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "jobPosting.Controllers.JobPostingController",
+    "Method": "Put",
+    "RelativePath": "api/JobPosting/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "jobPosting",
+        "Type": "jobPosting.Models.JobPosting",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "jobPosting.Controllers.JobPostingController",
+    "Method": "Delete",
+    "RelativePath": "api/JobPosting/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

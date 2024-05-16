@@ -74,7 +74,7 @@ namespace Jobverse.Controllers
                             _logger.LogInformation("PDF generated and uploaded successfully.");
 
                             // Return the PDF file
-                            return File(pdfBytes, "application/pdf", "Resume.pdf");
+                            return File(pdfBytes, "application/pdf", $"{model.FirstName}.pdf");
                         }
                         else
                         {
