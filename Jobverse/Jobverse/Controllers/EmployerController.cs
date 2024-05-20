@@ -38,6 +38,11 @@ namespace Jobverse.Controllers
             Response.Cookies.Delete("Company");
             return RedirectToAction("Index", "Home");
         }
+        /// <summary>
+        /// abdulrehman
+        /// </summary>
+        /// <param name="employer"></param>
+        /// <returns></returns>
         public async Task<IActionResult> SigninSuccess(Jobverse.Models.Authentication.Signup.RegisterCompany employer)
         {
             Console.WriteLine($"Yes here i am {employer.Email}");
@@ -111,6 +116,10 @@ namespace Jobverse.Controllers
             Console.WriteLine($"the returned code is {(int)response.StatusCode}");
             return (response.StatusCode);
         }
+        /// <summary>
+        /// abdulrehman'ss
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> JobsPosted()
         {
             try

@@ -1,6 +1,7 @@
 ﻿using CompanyProfile.Models;
 using CompanyProfile.Models.Authentication.Login;
 using CompanyProfile.Repository;
+using CompanyProfile.Services;
 using FluentMigrator.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -17,14 +18,16 @@ namespace CompanyProfile.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ICompanyRepository _companyRepository;
+        private readonly ICreateUserCookie _createUserCookie;
         public AuthenticationController(UserManager<IdentityUser> userManager,
-                               SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ICompanyRepository companyRepository)
+                               SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ICompanyRepository companyRepository,ICreateUserCookie createUserCookie)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _configuration = configuration;
             _companyRepository = companyRepository;
+            _createUserCookie=createUserCookie;
         }
         [HttpPost("Register")]
         [AllowAnonymous]
@@ -81,12 +84,21 @@ namespace CompanyProfile.Controllers
                 if (result.Succeeded)
                 {
                     var identityUser = await _userManager.FindByEmailAsync(user.Email);
-
-                    if (identityUser != null)
+                    string name=await _companyRepository.createUserCookie(user.Email);
+                    bool status = false;
+                    if(name!="")
+                    {
+                        status=_createUserCookie.SetUserCookie(user.Email,name);
+                    }
+                    if (identityUser != null&&status==true)
                     {
                         int code = 200;
                         string message = "Login successful";
                         return StatusCode(code, new { Code = code, Message = message });
+                    }
+                    else
+                    {
+                        return StatusCode(408, new { Code = 408, Message = "Cookie Not Created" });
                     }
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Credentials");

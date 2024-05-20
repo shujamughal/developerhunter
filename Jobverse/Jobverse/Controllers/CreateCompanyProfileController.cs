@@ -35,7 +35,7 @@ namespace Jobverse.Controllers
             ViewBag.ShowSignup = true;
             try
             {
-                var apiUrl = "https://localhost:7105/api/Company";
+                var apiUrl = "https://localhost:7105/api/Authentication/Register";
                 var result = await PostToApiAsync(apiUrl, company);
                 if (result.StatusCode == HttpStatusCode.Conflict)
                 {
@@ -59,7 +59,7 @@ namespace Jobverse.Controllers
             Console.WriteLine(company.Email);
             try
             {
-                var apiUrl = "https://localhost:7105/api/Company/login";
+                var apiUrl = "https://localhost:7105/api/Authentication/Login";
                 var result = await PostToApiAsyncLogin(apiUrl, company);
                 Console.WriteLine(result);
                 if (result.StatusCode == HttpStatusCode.Unauthorized)

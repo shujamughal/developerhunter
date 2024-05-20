@@ -1,17 +1,22 @@
-﻿using CompanyProfile.Models;
+﻿using Azure;
+using Azure.Core;
+using CompanyProfile.Models;
 using CompanyProfile.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.AspNetCore.Http;
 
 public class CompanyRepository : ICompanyRepository
 {
     private readonly CompanyContext _context;
-
-    public CompanyRepository(CompanyContext context)
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    public CompanyRepository(CompanyContext context, IHttpContextAccessor httpContextAccessor)
     {
         _context = context;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public async Task<IEnumerable<Company>> GetAllCompaniesAsync()
@@ -47,16 +52,23 @@ public class CompanyRepository : ICompanyRepository
         _context.Entry(company).State = EntityState.Modified;
         await SaveChangesAsync();
     }
-
+    public async Task<string> createUserCookie(string email)
+    {
+        var companyExists= await _context.Companies.FindAsync(email);
+        if(companyExists!=null)
+        {
+            return companyExists.Username;
+        }
+        return "";
+    }
     public async Task DeleteCompanyAsync(string email)
     {
         var company = await _context.Companies
-        .Include(c => c.CompanyProfile) // Include the navigation property
+        .Include(c => c.CompanyProfile) 
         .FirstOrDefaultAsync(c => c.Email == email);
 
         if (company != null)
         {
-            // Remove the company
             _context.Companies.Remove(company);
 
             await SaveChangesAsync();
@@ -66,15 +78,11 @@ public class CompanyRepository : ICompanyRepository
     {
         try
         {
-            // Check if the new email already exists in the Company table
             var emailExists = await _context.Companies.AnyAsync(c => c.Email == newEmail);
             if (emailExists)
             {
-                // New email already exists
                 return false;
             }
-
-            // Check if the existing email exists in the Company table
             var existingCompany = await _context.Companies
                 .Include(c => c.CompanyProfile)
                 .FirstOrDefaultAsync(c => c.Email == existingEmail);

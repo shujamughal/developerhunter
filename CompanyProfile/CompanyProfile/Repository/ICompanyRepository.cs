@@ -9,6 +9,7 @@ namespace CompanyProfile.Repository
         Task<Company> GetCompanyByEmailAsync(string email);
         Task<int> AddCompanyAsync(Company company);
         Task UpdateCompanyAsync(Company company);
+        Task <string> createUserCookie(string email);
         Task DeleteCompanyAsync(string email);
         Task<bool> UpdateCompanyEmailInCompanyProfileAsync(string existingEmail, string newEmail);
         Task SaveChangesAsync();

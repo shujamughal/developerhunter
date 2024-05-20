@@ -23,8 +23,8 @@ namespace CompanyProfile.Models
         public virtual List<CompanyReview>? CompanyReviews { get; set; }
         public Company()
         {
-            CompanyProfile = new CompanyProfile();
-            CompanyInsights = new CompanyInsights();
+            //CompanyProfile = new CompanyProfile();
+            //CompanyInsights = new CompanyInsights();
         }
         
     }

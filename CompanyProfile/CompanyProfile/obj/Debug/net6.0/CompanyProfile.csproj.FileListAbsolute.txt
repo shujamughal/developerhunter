@@ -276,3 +276,9 @@ D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyPro
 D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\obj\Debug\net6.0\CompanyProfile.pdb
 D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\obj\Debug\net6.0\CompanyProfile.genruntimeconfig.cache
 D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\obj\Debug\net6.0\ref\CompanyProfile.dll
+D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\bin\Debug\net6.0\Azure.Core.dll
+D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\bin\Debug\net6.0\System.ClientModel.dll
+D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\6TH SEMESTER\SCAD\WebApplications\2\developerhunter\CompanyProfile\CompanyProfile\bin\Debug\net6.0\System.Memory.Data.dll

@@ -1,3 +1,4 @@
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using CompanyProfile.Repository;
@@ -7,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Identity;
+using CompanyProfile.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -23,6 +25,7 @@ builder.Services.AddTransient<ICompanyProfileRepository, CompanyProfileRepositor
 builder.Services.AddTransient<ICompanyDepartmentsRepository, CompanyDepartmentsRepository>();
 builder.Services.AddTransient<ICompanyInsightsRepository, CompanyInsightsRepository>();
 builder.Services.AddTransient<ICompanyReviewRepository, CompanyReviewRepository>();
+builder.Services.AddTransient<ICreateUserCookie,CreateUserCookie>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
