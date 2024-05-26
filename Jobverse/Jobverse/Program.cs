@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using System.Security.Cryptography;
 using Jobverse.Services;
 using System.Text;
+using Microsoft.AspNetCore.CookiePolicy;
 
 namespace Jobverse
 {
@@ -27,11 +28,8 @@ namespace Jobverse
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            // Add HttpClient to the services
             builder.Services.AddHttpClient();
             builder.Services.AddScoped<ErrorViewModel>();
             builder.Services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
@@ -42,8 +40,13 @@ namespace Jobverse
             builder.Services.AddSingleton(encryptionKey);
 
             builder.Services.AddScoped<ITokenEncryptionService, TokenEncryptionService>();
-
-            // Configure MassTransit with RabbitMQ
+            builder.Services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.HttpOnly = HttpOnlyPolicy.Always;
+                options.Secure = CookieSecurePolicy.Always;
+            });
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddMassTransit(config =>
             {
                 config.UsingRabbitMq((ctx, cfg) =>
@@ -61,9 +64,7 @@ namespace Jobverse
                 });
             });
 
-            var app = builder.Build(); // Ensure this is after all services have been added.
-
-            // Configure the HTTP request pipeline.
+            var app = builder.Build(); 
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");

@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Connections;
 using jobPosting.Models;
 using ApplyForJob.Models;
 using System.Linq.Expressions;
+using System.ComponentModel.DataAnnotations;
+using Jobverse.Utils;
 
 namespace Jobverse.Controllers
 {
@@ -17,11 +19,12 @@ namespace Jobverse.Controllers
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly HttpClient _httpClient;
-
-        public EmployerController(IHttpClientFactory httpClientFactory)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public EmployerController(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
         {
             _httpClientFactory = httpClientFactory;
             _httpClient = httpClientFactory.CreateClient();
+            _httpContextAccessor = httpContextAccessor;
         }
         public IActionResult SignupEmployer()
         {
@@ -76,7 +79,6 @@ namespace Jobverse.Controllers
             var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 
             var response = await httpClient.PostAsync(apiUrl, content);
-            Console.WriteLine($"the returned code is {(int)response.StatusCode}");
             return (response.StatusCode);
         }
         public async Task<IActionResult> LoginSuccess(Jobverse.Models.Authentication.Login.LoginCompany employer)
@@ -113,7 +115,10 @@ namespace Jobverse.Controllers
             var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 
             var response = await httpClient.PostAsync(apiUrl, content);
-            Console.WriteLine($"the returned code is {(int)response.StatusCode}");
+            string responseContent = await response.Content.ReadAsStringAsync();
+            var responseObject = JsonConvert.DeserializeObject<dynamic>(responseContent);
+            string token = responseObject.token;
+            TokenManager.CompanyToken = token;
             return (response.StatusCode);
         }
         /// <summary>
@@ -124,6 +129,7 @@ namespace Jobverse.Controllers
         {
             try
             {
+                var (CompanyEmail, CompanyName) = TokenManager.getCredentials();
                 string company = Request.Cookies["Company"];
                 string endpoint = $"https://localhost:7199/api/JobPosting/{company}/{1}";
 
@@ -146,7 +152,23 @@ namespace Jobverse.Controllers
                 return View("Error");
             }
         }
+        private (string email,string name) getCookieValues()
+        {
+            var httpContext = _httpContextAccessor.HttpContext;
+            if (httpContext.Request.Cookies.TryGetValue("Company", out var cookieValue))
+            {
+                var cookieValues = JsonConvert.DeserializeObject<Dictionary<string, string>>(cookieValue);
+                Console.WriteLine(cookieValue);
+                var email = cookieValues.ContainsKey("Email") ? cookieValues["Email"] : string.Empty;
+                var companyName = cookieValues.ContainsKey("CompanyName") ? cookieValues["CompanyName"] : string.Empty;
+                Console.WriteLine($"Email: {email}, CompanyName: {companyName}");
 
+                return (email, companyName);
+            }
+
+            Console.WriteLine("Cookie not found");
+            return (string.Empty,string.Empty);
+        }
         public async Task<IActionResult> JobApplications(int jobId)
         {
             string endpoint = $"https://localhost:7025/api/JobApplication/{jobId}/c?_=c";

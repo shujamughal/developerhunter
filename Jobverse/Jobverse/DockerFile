@@ -1,0 +1,32 @@
+# Use the appropriate ASP.NET Core runtime as the base image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+# Use the appropriate .NET SDK image to build the app
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+
+# Copy the Jobverse and SharedContent project files
+COPY Jobverse/Jobverse/Jobverse.csproj Jobverse/
+COPY SharedContent/SharedContent/SharedContent.csproj SharedContent/
+
+# Restore dependencies for the Jobverse project
+RUN dotnet restore "Jobverse/Jobverse.csproj"
+
+# Copy the entire solution into the container
+COPY Jobverse/Jobverse/ Jobverse/
+COPY SharedContent/SharedContent/ SharedContent/
+
+# Build the Jobverse project
+WORKDIR "/src/Jobverse"
+RUN dotnet build "Jobverse.csproj" -c Release -o /app/build
+
+# Publish the Jobverse project
+RUN dotnet publish "Jobverse.csproj" -c Release -o /app/publish
+
+# Define the entry point for the application
+FROM base AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "Jobverse.dll"]

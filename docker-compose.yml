@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  companyprofile:
+    build:
+      context: "./CompanyProfile/CompanyProfile"
+      dockerfile: DockerFile
+    ports:
+      - "5003:80"

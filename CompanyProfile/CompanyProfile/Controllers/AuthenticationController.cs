@@ -18,16 +18,16 @@ namespace CompanyProfile.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ICompanyRepository _companyRepository;
-        private readonly ICreateUserCookie _createUserCookie;
+        private readonly IAuthService _authService;
         public AuthenticationController(UserManager<IdentityUser> userManager,
-                               SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ICompanyRepository companyRepository,ICreateUserCookie createUserCookie)
+                               SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, ICompanyRepository companyRepository, IAuthService authService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _configuration = configuration;
             _companyRepository = companyRepository;
-            _createUserCookie=createUserCookie;
+            _authService = authService;
         }
         [HttpPost("Register")]
         [AllowAnonymous]
@@ -85,16 +85,17 @@ namespace CompanyProfile.Controllers
                 {
                     var identityUser = await _userManager.FindByEmailAsync(user.Email);
                     string name=await _companyRepository.createUserCookie(user.Email);
-                    bool status = false;
-                    if(name!="")
+                    var company = new Company
                     {
-                        status=_createUserCookie.SetUserCookie(user.Email,name);
-                    }
-                    if (identityUser != null&&status==true)
+                        Email = user.Email,
+                        Username = name,
+                    };
+                    string token=_authService.generateTokenString(company);
+                    if (identityUser != null)
                     {
                         int code = 200;
                         string message = "Login successful";
-                        return StatusCode(code, new { Code = code, Message = message });
+                        return StatusCode(code, new { Code = code, Message = message,Token=token });
                     }
                     else
                     {

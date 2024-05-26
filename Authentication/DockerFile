@@ -1,0 +1,31 @@
+# Use the appropriate ASP.NET Core runtime as the base image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+# Use the appropriate .NET SDK image to build the app
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+
+# Copy the project files
+COPY ["Authentication.csproj", "./Authentication/"]
+COPY ["../SharedContent/SharedContent/SharedContent.csproj", "./SharedContent/"]
+
+# Restore dependencies
+RUN dotnet restore "./Authentication/Authentication.csproj"
+
+# Copy the entire solution into the container
+COPY Authentication/ Authentication/
+COPY SharedContent/ SharedContent/
+
+# Build the project
+WORKDIR "/src/Authentication"
+RUN dotnet build "Authentication.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Authentication.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Authentication.dll"]
