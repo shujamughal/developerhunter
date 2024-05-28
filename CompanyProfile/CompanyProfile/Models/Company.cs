@@ -13,8 +13,6 @@ namespace CompanyProfile.Models
         public int Id { get; set; }
         [Required]
         public string Username { get; set; }
-        [Required]
-        public string Password { get; set; }
         [JsonIgnore]
         public CompanyProfile CompanyProfile { get; set; }
         [JsonIgnore]
@@ -25,9 +23,8 @@ namespace CompanyProfile.Models
         public virtual List<CompanyReview>? CompanyReviews { get; set; }
         public Company()
         {
-            // Create a new CompanyProfile instance when a new Company is created
-            CompanyProfile = new CompanyProfile();
-            CompanyInsights = new CompanyInsights();
+            //CompanyProfile = new CompanyProfile();
+            //CompanyInsights = new CompanyInsights();
         }
         
     }

@@ -21,6 +21,8 @@ namespace jobPosting.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JobPosting>>> Get()
         {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
             var jobPosts = await this._jobPostingRepository.GetAllJobPosts();
             return Ok(jobPosts);
         }
@@ -28,14 +30,27 @@ namespace jobPosting.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<JobPosting>> Get(int id)
         {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             var jobPost = await this._jobPostingRepository.GetJobPostById(id);
-            Console.WriteLine("Specific Job, public async Task<ActionResult<JobPosting>> Get(int id)");
             return Ok(jobPost);
         }
 
         [HttpGet("{company}/{_}")]
         public async Task<ActionResult<IEnumerable<JobPosting>>> GetByCompanyName(string company,int _)
         {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             var jobPosts = await this._jobPostingRepository.GetJobPostsByCompany(company);
             return Ok(jobPosts);
         }
@@ -44,16 +59,14 @@ namespace jobPosting.Controllers
         public async Task<ActionResult<JobPosting>> Post([FromBody] JobPosting jobPosting)
         {
             var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             var createdJobPosting = await this._jobPostingRepository.AddJobPosts(jobPosting);
             return CreatedAtAction(nameof(Get), new { id = createdJobPosting.Id }, createdJobPosting);
-            //if (token == TokenManager.TokenString)
-            //{
-            //    Console.WriteLine("Token matched to post job");
-            //    var createdJobPosting = await this._jobPostingRepository.AddJobPosts(jobPosting);
-            //    return CreatedAtAction(nameof(Get), new { id = createdJobPosting.Id }, createdJobPosting);
-            //}
-
-            //return Unauthorized(new { message = "Invalid token" });
         }
 
         [HttpPut("{id}")]
@@ -61,10 +74,11 @@ namespace jobPosting.Controllers
         {
             var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-            //if (token != TokenManager.TokenString)
-            //{
-            //    return Unauthorized(new { message = "Invalid token" });
-            //}
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                Console.WriteLine("Token didn't mached");
+                return Unauthorized(new { message = "Invalid token" });
+            }
 
             if (id != jobPosting.Id)
             {
@@ -77,15 +91,21 @@ namespace jobPosting.Controllers
                 return NotFound(new { message = "Job posting not found" });
             }
 
+            Console.WriteLine("Job Updated");
             await _jobPostingRepository.UpdateJobPost(jobPosting);
-            Console.WriteLine(".....");
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            Console.WriteLine("id: ", id);
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             var deleted = await _jobPostingRepository.DeleteJobPost(id);
             if (!deleted)
             {

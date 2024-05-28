@@ -36,12 +36,13 @@ namespace Jobverse.Controllers
             {
                 try
                 {
-                    string tokenString = _encryptionService.EncryptToken(TokenManager.TokenString);
+                    string tokenString = CompanyTokenManager.CompanyTokenString;
+
                     string apiEndpoint = "api/JobPosting";
 
                     var jsonContent = new StringContent(JsonConvert.SerializeObject(jobPosting), Encoding.UTF8, "application/json");
 
-                    // Sending token in the headers
+                    // Sending company token in the headers
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
 
                     // Make a POST request to the API endpoint
@@ -79,17 +80,14 @@ namespace Jobverse.Controllers
         {
             try
             {
-                Console.WriteLine("DeleteJob 1");
-                string tokenString = _encryptionService.EncryptToken(TokenManager.TokenString);
+                string tokenString = _encryptionService.EncryptToken(CompanyTokenManager.CompanyTokenString);
                 string apiEndpoint = $"api/JobPosting/{id}";
 
                 // Sending token in the headers
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
-                Console.WriteLine("DeleteJob 2");
 
                 // Make a POST request to the API endpoint
                 var response = await _httpClient.DeleteAsync(apiEndpoint);
-                Console.WriteLine("DeleteJob 3");
 
                 return RedirectToAction("JobsPosted", "Employer");
             }
@@ -109,7 +107,9 @@ namespace Jobverse.Controllers
         {
             try
             {
-                Console.WriteLine(jobId);
+                string tokenString = CompanyTokenManager.CompanyTokenString;
+                // Sending company token in the headers
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
 
                 string endpoint = $"https://localhost:7199/api/JobPosting/{jobId}";
                 var response = await _httpClient.GetAsync(endpoint);
@@ -128,8 +128,8 @@ namespace Jobverse.Controllers
 
                 var jsonContent = new StringContent(JsonConvert.SerializeObject(job), Encoding.UTF8, "application/json");
 
-                string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
+                // Sending company token in the headers
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
 
                 endpoint = $"https://localhost:7199/api/JobPosting/{jobId}";
 

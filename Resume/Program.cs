@@ -4,8 +4,26 @@ using Resume.Repository;
 using MassTransit;
 using MediatR;
 using System.Reflection;
+using Resume.Consumers;
+using jobPosting.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddMassTransit(config => {
+    config.UsingRabbitMq((ctx, cfg) => {
+        cfg.Host(new Uri("rabbitmq://localhost"), h => {
+            h.Username("guest");
+            h.Password("guest");
+        });
+        cfg.ReceiveEndpoint("SharedContent.Messages:JWTokenResume", ep => {
+            ep.Consumer<JWTokenResumeConsumer>();
+        });
+
+        cfg.ReceiveEndpoint("SharedContent.Messages:CompanyJWTokenResume", ep => {
+            ep.Consumer<CompanyJWTTokenResumeConsumer>();
+        });
+    });
+});
 
 // Add services to the container.
 
@@ -22,11 +40,6 @@ builder.Services.AddTransient<IResumeRepository,
 ResumeRepository>();
 
 builder.Services.AddScoped<IResumeIdProducer, ResumeIdProducer>();
-
-builder.Services.AddMassTransit(x =>
-{
-    x.UsingRabbitMq();
-});
 
 var app = builder.Build();
 

@@ -20,6 +20,12 @@ namespace ApplyForJob.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JobApplication>>> Get()
         {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
             var jobApplications = await this._jobApplicationRepository.GetAllJobApplications();
             return Ok(jobApplications);
         }
@@ -27,6 +33,12 @@ namespace ApplyForJob.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<JobApplication>> Get(int id)
         {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
             var jobApplication = await this._jobApplicationRepository.GetJobApplicationById(id);
             if (jobApplication == null)
                 return NotFound();
@@ -36,6 +48,12 @@ namespace ApplyForJob.Controllers
         [HttpGet("{id}/{company}")]
         public async Task<ActionResult<IEnumerable<JobApplication>>> GetByJobId(int id, string _)
         {
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
             var jobApplications = await this._jobApplicationRepository.GetJobApplicationByJobId(id);
             if (jobApplications == null)
                 return NotFound();
@@ -47,9 +65,9 @@ namespace ApplyForJob.Controllers
         {
             try
             {
-                var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+                var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-                if (token != TokenManager.TokenString)
+                if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
                 {
                     return Unauthorized(new { message = "Invalid token" });
                 }
@@ -68,29 +86,30 @@ namespace ApplyForJob.Controllers
         public async Task<ActionResult<JobApplication>> Post([FromBody] JobApplication jobApplication)
         {
             jobApplication.ResumeId = UserResumeId.ResumeId;
+
             // Extract the token from the request headers
-            var token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            Console.WriteLine("JobApplication Post Method: ");
-			Console.WriteLine(token);
-			Console.WriteLine(TokenManager.TokenString);
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
 
-			if (token == TokenManager.TokenString)
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
             {
-                Console.WriteLine("Token matched to apply for job");
-                var createdJobApplication = await _jobApplicationRepository.AddJobApplication(jobApplication);
-                return CreatedAtAction(nameof(Get), new { id = createdJobApplication.Id }, createdJobApplication);
-            }
-            else
-            {
-                Console.WriteLine("Token not matched");
+                return Unauthorized(new { message = "Invalid token" });
             }
 
-            return Unauthorized(new { message = "Invalid token" });
+            var createdJobApplication = await _jobApplicationRepository.AddJobApplication(jobApplication);
+            return CreatedAtAction(nameof(Get), new { id = createdJobApplication.Id }, createdJobApplication);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] JobApplication jobApplication)
         {
+            // Extract the token from the request headers
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             if (id != jobApplication.Id)
                 return BadRequest();
 
@@ -104,6 +123,14 @@ namespace ApplyForJob.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            // Extract the token from the request headers
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             var jobApplication = await this._jobApplicationRepository.GetJobApplicationById(id);
             if (jobApplication == null)
                 return NotFound();
@@ -116,6 +143,14 @@ namespace ApplyForJob.Controllers
         [HttpDelete("{id}/{email}")]
         public async Task<IActionResult> Delete(int id, string email)
         {
+            // Extract the token from the request headers
+            var token = HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+
+            if (token != CompanyTokenManager.CompanyTokenString && token != TokenManager.TokenString)
+            {
+                return Unauthorized(new { message = "Invalid token" });
+            }
+
             var jobApplications = await this._jobApplicationRepository.GetJobApplicationByJobId(id);
             foreach(JobApplication application in jobApplications)
             {

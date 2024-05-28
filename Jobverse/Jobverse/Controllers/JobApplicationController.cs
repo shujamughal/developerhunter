@@ -71,10 +71,8 @@ namespace Jobverse.Controllers
                         return Json(new { success = false, message = "Error adding resume" });
                     }
                     var addedResume = JsonConvert.DeserializeObject<ResumePdf>(await addedResumeResponse.Content.ReadAsStringAsync());
-
-					var resumeIdAsync = new ResumeId();
-                    resumeIdAsync.UserResumeId = addedResume.ResumeId;
-					await _publishEndpoint.Publish<ResumeId>(resumeIdAsync);
+                    Console.WriteLine("::");
+                    Console.WriteLine(addedResume.ResumeId);
                 }
 
                 var saveApplicationResponse = await SaveJobApplicationAsync(JobId, Applier, UserEmail, PhoneNumber, resumeId, Experience, "https://localhost:7025/");
@@ -103,9 +101,6 @@ namespace Jobverse.Controllers
 
                     string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
 
-                    Console.WriteLine("Encrypted Token in Jobverse Save Application: ");
-                    Console.WriteLine(encryptedToken);
-
                     string apiEndpoint = $"https://localhost:7025/api/JobApplication/MyJob?username={username}";
 
                     // Sending token in the headers
@@ -115,11 +110,9 @@ namespace Jobverse.Controllers
 
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("Success");
                         var content = await response.Content.ReadAsStringAsync();
                         var jobApplications = JsonConvert.DeserializeObject<List<JobApplication>>(content);
                         int numOfJobApplications = jobApplications != null? jobApplications.Count : 0;
-                        Console.WriteLine(numOfJobApplications);
                         List<JobPosting> jobs = new List<JobPosting>();
                         for (int i = 0; i < numOfJobApplications; ++i)
                         {
@@ -132,7 +125,7 @@ namespace Jobverse.Controllers
                                 jobs.Add(job);
                             }
                         }
-                        Console.WriteLine(jobs.Count);
+                        jobs.Reverse();
                         return View(jobs);
                     }
                     else
@@ -164,10 +157,12 @@ namespace Jobverse.Controllers
                 var resumeContent = new ByteArrayContent(ms.ToArray());
                 resumeContent.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
                 var formData = new MultipartFormDataContent();
-                Console.WriteLine(resumeContent);
                 formData.Add(resumeContent, "file", resume.FileName);
                 formData.Add(new StringContent(userEmail), "userEmail");
-                Console.WriteLine("Form Data: ", formData);
+
+                string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
+                // Sending token in the headers
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
 
                 return await _httpClient.PostAsync(baseUrl + "api/resume", formData);
             }
@@ -187,9 +182,6 @@ namespace Jobverse.Controllers
             };
             string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
 
-            Console.WriteLine("Encrypted Token from Jobverse while saving: ");
-            Console.WriteLine(encryptedToken);
-
             jobApplication.UserEmail = Request.Cookies["Username"];
             string apiEndpoint = "api/JobApplication";
 
@@ -206,6 +198,9 @@ namespace Jobverse.Controllers
 
             try
             {
+                string encryptedToken = _encryptionService.EncryptToken(TokenManager.TokenString);
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", encryptedToken);
+
                 string endpoint = $"https://localhost:7025/api/JobApplication/{jobId}/{username}";
 
                 var response = await _httpClient.DeleteAsync(endpoint);

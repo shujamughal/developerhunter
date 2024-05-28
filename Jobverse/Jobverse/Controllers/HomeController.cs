@@ -44,7 +44,7 @@ public class HomeController : Controller
                     var filteredJobPostings = jobPostings
                         .Where(job => job.Enabled == true).ToList();
 
-                    filteredJobPostings = jobPostings.Where(job => job.LastDate >= DateTime.Today).ToList();
+                    filteredJobPostings = filteredJobPostings.Where(job => job.LastDate >= DateTime.Today).ToList();
 
                     filteredJobPostings.Reverse(); // Latest job at the top
 

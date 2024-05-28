@@ -33,6 +33,10 @@ builder.Services.AddMassTransit(config => {
         {
             ep.Consumer<ResumeIdApplyForJobConsumer>();
         });
+
+        cfg.ReceiveEndpoint("SharedContent.Messages:CompanyJWTokenApplyForJob", ep => {
+            ep.Consumer<CompanyJWTTokenApplyForJobConsumer>();
+        });
     });
 });
 

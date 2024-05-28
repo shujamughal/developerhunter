@@ -1,9 +1,11 @@
 ﻿using CompanyProfile.Models;
 using CompanyProfile.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyProfile.Controllers
 {
+    [Authorize(Roles = "CompanyAdmin")]
     [Route("api/[controller]")]
     [ApiController]
     public class CompanyDepartmentsController : ControllerBase

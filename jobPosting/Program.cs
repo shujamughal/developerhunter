@@ -3,6 +3,7 @@ using jobPosting.Repository;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using jobPosting.Consumers;
+using SharedContent.Messages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<JobPostingContext>(options =>
 
 builder.Services.AddTransient<IJobPostingRepository, JobPostingRepository>();
 builder.Services.AddScoped<IJobPostingRepository, JobPostingRepository>();
+builder.Services.Decorate<IJobPostingRepository, LoggingJobPostingRepositoryDecorator>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -28,6 +30,10 @@ builder.Services.AddMassTransit(config => {
 
         cfg.ReceiveEndpoint("SharedContent.Messages:JWTokenJobPosting", ep => {
             ep.Consumer<JWTokenJobPostingConsumer>();
+        });
+
+        cfg.ReceiveEndpoint("SharedContent.Messages:CompanyJWTokenJobPosting", ep => {
+            ep.Consumer<CompanyJWTTokenJobPostingConsumer>();
         });
     });
 });

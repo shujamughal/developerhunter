@@ -1,10 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 namespace CompanyProfile.Models
 {
-    public class CompanyContext : DbContext
+    public class CompanyContext : IdentityDbContext
     {
+        private readonly DbContextOptions _options;
         public CompanyContext(DbContextOptions<CompanyContext> options) : base(options)
         {
+            _options = options;
+            
+        }
+        private void SeedRoles(ModelBuilder builder)
+        {
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Name = "CompanyAdmin", ConcurrencyStamp = "1", NormalizedName = "CompanyAdmin" }
+            );
         }
         public DbSet<Company> Companies { get; set; }
         public DbSet<CompanyProfile> CompanyProfiles { get; set; }
@@ -13,7 +24,8 @@ namespace CompanyProfile.Models
         public DbSet<CompanyReview>CompanyReviews { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Define the primary key for the Company class
+            base.OnModelCreating(modelBuilder);
+            this.SeedRoles(modelBuilder);
             modelBuilder.Entity<Company>()
                 .HasKey(c => c.Email);
 

@@ -57,7 +57,6 @@ namespace Jobverse.Controllers
             {
                 var apiUrl = "https://localhost:7065/api/Auth/Login";
                 var result = await PostToApiAsync(apiUrl, user);
-                Console.WriteLine(result);
                 if (result == HttpStatusCode.Conflict)
                 {
                     Console.WriteLine("Signin success conflict");

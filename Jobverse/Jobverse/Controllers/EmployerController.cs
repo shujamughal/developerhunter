@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Connections;
 using jobPosting.Models;
 using ApplyForJob.Models;
 using SharedContent.Messages;
+using Jobverse.Utils;
+using System.Net.Http.Headers;
 
 namespace Jobverse.Controllers
 {
@@ -17,19 +19,20 @@ namespace Jobverse.Controllers
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly HttpClient _httpClient;
-
-        public EmployerController(IHttpClientFactory httpClientFactory)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public EmployerController(IHttpClientFactory httpClientFactory, IHttpContextAccessor httpContextAccessor)
         {
             _httpClientFactory = httpClientFactory;
             _httpClient = httpClientFactory.CreateClient();
+            _httpContextAccessor = httpContextAccessor;
         }
         public IActionResult SignupEmployer()
         {
-            return View();
+            return View("~/Views/Authentication/Signup.cshtml");
         }
         public IActionResult LoginEmployer()
         {
-            return View();
+            return View("~/Views/Authentication/Login.cshtml");
         }
         public IActionResult LogoutEmployer()
         {
@@ -38,20 +41,97 @@ namespace Jobverse.Controllers
             Response.Cookies.Delete("Company");
             return RedirectToAction("Index", "Home");
         }
-        public IActionResult SigninSuccess(Jobverse.Models.Employer employer)
+        public async Task<IActionResult> SigninSuccess(Jobverse.Models.Authentication.Signup.RegisterCompany employer)
         {
-            ViewBag.ShowSignup = true;
-            Response.Cookies.Delete("Username");
-            Response.Cookies.Append("Company", employer.Company);
-            return RedirectToAction("JobsPosted", "Employer");
-        }
+            Console.WriteLine($"Yes here i am {employer.Email}");
+            try
+            {
+                var apiUrl = "https://localhost:7105/api/Authentication/Register";
+                var result = await PostToApiAsyncSignup(apiUrl, employer);
+                var code = (int)result;
+                if (code == 200)
+                {
+                    ViewBag.ShowSignup = true;
+                    Response.Cookies.Delete("Username");
+                    Console.WriteLine("Company registered successfully\n");
+                    return View("~/Views/Authentication/Login.cshtml");
+                }
+                else if (code == 409)
+                {
+                    ViewBag.EmailAlreadyExists = "Email is already registered. Please login or use a different email.";
+                }
+                return View("~/Views/Authentication/Signup.cshtml");
 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
+
+        }
+        private async Task<HttpStatusCode> PostToApiAsyncSignup(string apiUrl, Jobverse.Models.Authentication.Signup.RegisterCompany data)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+
+            var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync(apiUrl, content);
+            Console.WriteLine($"the returned code is {(int)response.StatusCode}");
+            return (response.StatusCode);
+        }
+        public async Task<IActionResult> LoginSuccess(Jobverse.Models.Authentication.Login.LoginCompany employer)
+        {
+            Console.WriteLine($"Yes I am {employer.Email}");
+            try
+            {
+                var apiUrl = "https://localhost:7105/api/Authentication/Login";
+                var result = await PostToApiAsyncSignin(apiUrl, employer);
+                var code = (int)result;
+                if (code == 200)
+                {
+                    ViewBag.ShowSignup = true;
+                    Response.Cookies.Delete("Username");
+                    Console.WriteLine("Company LoggedIn successfully\n");
+                    return RedirectToAction("JobsPosted", "Employer");
+                }
+                else if (code == 409)
+                {
+                    ViewBag.InvalidCredentials = "Invalid Login Credentials!!";
+                    return View("~/Views/Authentication/Login.cshtml");
+                }
+                return View("~/Views/Authentication/Signup.cshtml");
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal Server Error");
+            }
+
+        }
+        private async Task<HttpStatusCode> PostToApiAsyncSignin(string apiUrl, Jobverse.Models.Authentication.Login.LoginCompany data)
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+
+            var content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync(apiUrl, content);
+            string responseContent = await response.Content.ReadAsStringAsync();
+            var responseObject = JsonConvert.DeserializeObject<dynamic>(responseContent);
+            string token = responseObject.token;
+            CompanyTokenManager.CompanyTokenString = token;
+            return (response.StatusCode);
+        }
         public async Task<IActionResult> JobsPosted()
         {
             try
             {
-                string company = Request.Cookies["Company"];
-                string endpoint = $"https://localhost:7199/api/JobPosting/{company}/{1}";
+                var (CompanyEmail, CompanyName) = CompanyTokenManager.getCredentials();
+
+                // Sending company token in the headers
+                string tokenString = CompanyTokenManager.CompanyTokenString;
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
+                string endpoint = $"https://localhost:7199/api/JobPosting/{CompanyName}/{1}";
 
                 var response = await _httpClient.GetAsync(endpoint);
 
@@ -73,15 +153,45 @@ namespace Jobverse.Controllers
             }
         }
 
+        public (string email, string name) GetUserCookie()
+        {
+            try
+            {
+                var httpContext = _httpContextAccessor.HttpContext;
+
+                if (httpContext.Request.Cookies.TryGetValue("Company", out var cookieValue))
+                {
+                    var cookieValues = JsonConvert.DeserializeObject<Dictionary<string, string>>(cookieValue);
+
+                    if (cookieValues != null &&
+                        cookieValues.TryGetValue("Email", out var email) &&
+                        cookieValues.TryGetValue("CompanyName", out var name))
+                    {
+                        return (email, name);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine($"Error retrieving cookie: {ex.Message}");
+            }
+
+            return (null, null);
+        }
         public async Task<IActionResult> JobApplications(int jobId)
         {
+            // Sending company token in the headers
+            string tokenString = CompanyTokenManager.CompanyTokenString;
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
             string endpoint = $"https://localhost:7025/api/JobApplication/{jobId}/c?_=c";
             var response = await _httpClient.GetAsync(endpoint);
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var jobApplications = JsonConvert.DeserializeObject<List<JobApplication>>(content);
-                if(jobApplications.Count > 0)
+                if (jobApplications != null)
                 {
                     jobApplications.Reverse();
                     return View(jobApplications);
@@ -93,25 +203,30 @@ namespace Jobverse.Controllers
                 return View("Error");
             }
         }
-<<<<<<< HEAD
-        public async Task<IActionResult> DownloadResume(int jobID,int ResumeId)
+        public async Task<IActionResult> DownloadResume(int jobID, int ResumeId)
         {
-            //Console.WriteLine(ResumeId);
             try
             {
+                // Sending company token in the headers
+                string tokenString = CompanyTokenManager.CompanyTokenString;
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenString);
+
+               // string resumeEndpoint = $"https://localhost:7142/api/resume/{ResumeId}";
+
                 string resumeEndpoint = $"https://localhost:7142/api/resume/{ResumeId}?resumeId={ResumeId}";
+
                 var resumeResponse = await _httpClient.GetAsync(resumeEndpoint);
                 if (resumeResponse.IsSuccessStatusCode)
                 {
-                        var resumeContent = await resumeResponse.Content.ReadAsStringAsync();
-                        var resume = JsonConvert.DeserializeObject<ResumePdf>(resumeContent);
-                        var resumeBytes = resume.Pdf;
-                        string contentType = "application/pdf";
-                        return File(resumeBytes, contentType, $"{resume.userEmail}.pdf");
+                    var resumeContent = await resumeResponse.Content.ReadAsStringAsync();
+                    var resume = JsonConvert.DeserializeObject<ResumePdf>(resumeContent);
+                    var resumeBytes = resume.Pdf;
+                    string contentType = "application/pdf";
+                    return File(resumeBytes, contentType, $"{resume.userEmail}.pdf");
                 }
                 else
                 {
-                    return View("Error"); 
+                    return View("Error");
                 }
             }
             catch (HttpRequestException ex)
@@ -119,8 +234,5 @@ namespace Jobverse.Controllers
                 return View("Error");
             }
         }
-=======
-
->>>>>>> a111c87df3acd042df082f40b7d34e871a4897de
     }
 }

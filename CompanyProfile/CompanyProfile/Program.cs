@@ -1,3 +1,5 @@
+using MassTransit;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using CompanyProfile.Repository;
@@ -6,37 +8,51 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Identity;
+using CompanyProfile.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddMassTransit(config => {
+    config.UsingRabbitMq((ctx, cfg) => {
+        cfg.Host(new Uri("rabbitmq://localhost"), h => {
+            h.Username("guest");
+            h.Password("guest");
+        });
+    });
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<CompanyContext>()
+.AddDefaultTokenProviders();
 builder.Services.AddDbContext<CompanyContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<CompanyContext, CompanyContext>();
 builder.Services.AddTransient<ICompanyRepository,CompanyRepository>();
 builder.Services.AddTransient<ICompanyProfileRepository, CompanyProfileRepository>();
 builder.Services.AddTransient<ICompanyDepartmentsRepository, CompanyDepartmentsRepository>();
 builder.Services.AddTransient<ICompanyInsightsRepository, CompanyInsightsRepository>();
 builder.Services.AddTransient<ICompanyReviewRepository, CompanyReviewRepository>();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = "http://localhost:7289",          // Set your issuer
-            ValidAudience = "http://localhost:7289",      // Set your audience
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("JWTAuthenticationHIGHsecuredPasswordVVVp1OH7Xzyr")) // Set your secret key
-        };
-    });
 builder.Services.AddAuthorization();
-builder.Services.AddScoped<JwtClass>(provider =>
+builder.Services.AddAuthentication(options =>
 {
-    var configuration = provider.GetRequiredService<IConfiguration>();
-    var secretKey = configuration["JWT:Secret"];
-    return new JwtClass(secretKey);
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateActor = true,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        RequireExpirationTime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration.GetSection("Jwt:Issuer").Value,
+        ValidAudience = builder.Configuration.GetSection("Jwt:Audience").Value,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("Jwt:Key").Value))
+    };
 });
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {

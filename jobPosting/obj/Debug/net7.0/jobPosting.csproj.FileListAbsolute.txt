@@ -512,3 +512,5 @@ D:\Universty\Semester 8\FYP\developerhunter\jobPosting\obj\Debug\net7.0\refint\j
 D:\Universty\Semester 8\FYP\developerhunter\jobPosting\obj\Debug\net7.0\jobPosting.pdb
 D:\Universty\Semester 8\FYP\developerhunter\jobPosting\obj\Debug\net7.0\jobPosting.genruntimeconfig.cache
 D:\Universty\Semester 8\FYP\developerhunter\jobPosting\obj\Debug\net7.0\ref\jobPosting.dll
+D:\After-Mid\developerhunter\jobPosting\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\After-Mid\developerhunter\jobPosting\bin\Debug\net7.0\Scrutor.dll
